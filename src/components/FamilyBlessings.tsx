@@ -110,8 +110,8 @@ export const FamilyBlessings: React.FC<FamilyBlessingsProps> = ({ currentLang })
 
           <div className="text-center sm:text-left pl-0 sm:pl-4 border-t sm:border-t-0 sm:border-l border-gold-500/20 pt-4 sm:pt-0">
             <p className="text-xs font-cinzel text-gold-300 uppercase font-semibold">Groom's Family</p>
-            <p className="font-serif text-base text-ivory-100 font-bold mt-1">Sri. S. Subramanian</p>
-            <p className="font-serif text-sm text-ivory-300">& Smt. Lakshmi Subramanian</p>
+            <p className="font-serif text-base text-ivory-100 font-bold mt-1">Sri. S. Mudaliar</p>
+            <p className="font-serif text-sm text-ivory-300">& Smt. Lakshmi Mudaliar</p>
           </div>
         </div>
 

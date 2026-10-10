@@ -75,8 +75,22 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLang }) => {
 
         <GoldFiligreeDivider className="my-4" />
 
+        {/* Real Couple Portrait Medallion of Kavya & Yogesh */}
+        <div className="relative my-4 inline-block">
+          <div className="w-36 h-36 sm:w-44 sm:h-44 mx-auto rounded-full p-1.5 border-2 border-gold-400 bg-gradient-to-tr from-gold-300 via-maroon-900 to-gold-500 shadow-[0_0_30px_rgba(212,175,55,0.4)]">
+            <img
+              src="/assets/images/couple-together.jpg"
+              alt="Kavya and Yogesh Mudaliar"
+              className="w-full h-full object-cover rounded-full filter brightness-100 contrast-105"
+            />
+          </div>
+          <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full text-[10px] font-cinzel font-bold tracking-widest text-gold-200 bg-maroon-950 border border-gold-400/50 shadow-md uppercase">
+            K & Y
+          </span>
+        </div>
+
         {/* Invitation lead text */}
-        <p className="text-ivory-200/90 text-xs sm:text-sm font-cinzel tracking-[0.2em] uppercase mb-4">
+        <p className="text-ivory-200/90 text-xs sm:text-sm font-cinzel tracking-[0.2em] uppercase mb-3 mt-4">
           {t.togetherWithFamilies}
         </p>
 

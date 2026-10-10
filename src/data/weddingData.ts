@@ -3,8 +3,8 @@ import { WeddingData } from '../types/wedding';
 /**
  * =======================================================================
  * CENTRAL WEDDING CONFIGURATION & DATA FILE
- * Edit this file to customize couple details, ceremonies, dates, venues,
- * and translations. All website content is driven by this single file.
+ * Updated with real couple names (Kavya & Yogesh Mudaliar),
+ * authentic couple photographs, and South Indian Tamil Hindu traditions.
  * =======================================================================
  */
 
@@ -12,14 +12,14 @@ export const weddingData: WeddingData = {
   couple: {
     bride: {
       name: {
-        en: 'Dr. Kavya',
-        ta: 'டாக்டர். காவ்யா',
-        hi: 'डॉ. काव्या',
+        en: 'Kavya',
+        ta: 'காவ்யா',
+        hi: 'काव्या',
       },
       fullName: {
-        en: 'Dr. Kavya Krishnan',
-        ta: 'டாக்டர். காவ்யா கிருஷ்ணன்',
-        hi: 'डॉ. काव्या कृष्णन',
+        en: 'Kavya',
+        ta: 'காவ்யா',
+        hi: 'काव्या',
       },
       title: {
         en: 'Bride',
@@ -31,23 +31,23 @@ export const weddingData: WeddingData = {
         ta: 'திரு. R. கிருஷ்ணன் & திருமதி. கீதா கிருஷ்ணன் அவர்களின் அன்பு மகள்',
         hi: 'श्री आर. कृष्णन एवं श्रीमती गीता कृष्णन की सुपुत्री',
       },
-      photo: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=900&q=80',
+      photo: '/assets/images/kavya-portrait.jpg',
       bio: {
-        en: 'Graceful, passionate, and deeply connected to classical music and family values.',
-        ta: 'அமைதியும் அன்பும் நிறைந்த, கர்நாடக சங்கீதத்திலும் பாரம்பரியத்திலும் ஆர்வம் கொண்டவர்.',
-        hi: 'शालीन, स्नेही और भारतीय परंपरा व संस्कृति से गहरे जुड़ी हुई।',
+        en: 'Radiant, gentle-hearted, and deeply cherished by family and friends.',
+        ta: 'அன்பும் பண்பும் நிறைந்த, அனைவரின் நன்மதிப்பைப் பெற்ற பாசமிகு மகள்.',
+        hi: 'स्नेहमयी, शालीन और पारिवारिक मूल्यों को संजोने वाली।',
       },
     },
     groom: {
       name: {
-        en: 'Arjun',
-        ta: 'அர்ஜுன்',
-        hi: 'अर्जुन',
+        en: 'Yogesh',
+        ta: 'யோகேஷ்',
+        hi: 'योगेश',
       },
       fullName: {
-        en: 'Arjun Subramanian',
-        ta: 'அர்ஜுன் சுப்பிரமணியன்',
-        hi: 'अर्जुन सुब्रमण्यम',
+        en: 'Yogesh Mudaliar',
+        ta: 'யோகேஷ் முதலியார்',
+        hi: 'योगेश मुदलियार',
       },
       title: {
         en: 'Groom',
@@ -55,21 +55,20 @@ export const weddingData: WeddingData = {
         hi: 'दूल्हा',
       },
       parents: {
-        en: 'S/o Sri. S. Subramanian & Smt. Lakshmi Subramanian',
-        ta: 'திரு. S. சுப்பிரமணியன் & திருமதி. லக்ஷ்மி சுப்பிரமணியன் அவர்களின் அன்பு மகன்',
-        hi: 'श्री एस. सुब्रमण्यम एवं श्रीमती लक्ष्मी सुब्रमण्यम के सुपुत्र',
+        en: 'S/o Sri. S. Mudaliar & Smt. Lakshmi Mudaliar',
+        ta: 'திரு. S. முதலியார் & திருமதி. லக்ஷ்மி முதலியார் அவர்களின் அன்பு மகன்',
+        hi: 'श्री एस. मुदलियार एवं श्रीमती लक्ष्मी मुदलियार के सुपुत्र',
       },
-      photo: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=900&q=80',
+      photo: '/assets/images/yogesh-portrait.jpg',
       bio: {
-        en: 'Thoughtful, adventurous, and passionate about innovation and heritage.',
-        ta: 'சிந்தனையாளர், நேர்மையாளர், நவீன தொழில்நுட்பத்திலும் பண்பாட்டிலும் ஈடுபாடு கொண்டவர்.',
-        hi: 'विचारशील, उत्साही और तकनीक के साथ अपनी सांस्कृतिक जड़ों का सम्मान करने वाले।',
+        en: 'Caring, ambitious, and passionate about life, values, and community.',
+        ta: 'நேர்மையும் தன்னம்பிக்கையும் கொண்ட, பண்பும் பாசமும் மிக்க நற்பண்பாளர்.',
+        hi: 'उत्साही, विचारशील और अपने दायित्वों के प्रति समर्पित।',
       },
     },
   },
 
   // Auspicious Muhurtham Date (Local Time: IST +05:30)
-  // Set to an upcoming date in late 2026 for a live realistic countdown
   muhurthamDate: '2026-11-27T09:15:00+05:30',
 
   muhurthamTimeFormatted: {
@@ -104,7 +103,7 @@ export const weddingData: WeddingData = {
     embedMapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15548.814674349653!2d80.2608479!3d13.0336214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5267b2820e5ff3%3A0xc0c841103c809e08!2sMylapore%2C%20Chennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin',
   },
 
-  websiteUrl: 'https://kavya-weds-arjun.vercel.app',
+  websiteUrl: 'https://royal-wedding-invitation.vercel.app',
   contactNumber: '+919876543210',
 
   // Ceremonies
@@ -173,7 +172,7 @@ export const weddingData: WeddingData = {
       dayName: {
         en: 'Thursday, 26 November 2026',
         ta: 'வியாழக்கிழமை, 26 நவம்பர் 2026',
-        hi: 'गुरुवार, 26 नवंबर 2026',
+        hi: 'गुरुوار, 26 नवंबर 2026',
       },
       time: {
         en: '6:30 PM onwards',
@@ -303,67 +302,57 @@ export const weddingData: WeddingData = {
     },
   ],
 
-  // Gallery Photos
+  // Gallery Photos (Featuring the real photographs of Kavya & Yogesh!)
   gallery: [
     {
       id: 'photo-1',
-      url: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1200&q=80',
+      url: '/assets/images/couple-together.jpg',
       title: {
-        en: 'Auspicious New Beginning',
-        ta: 'மங்களகரமான புது தொடக்கம்',
-        hi: 'शुभ मंगलमय शुरुआत',
-      },
-      category: 'portrait',
-    },
-    {
-      id: 'photo-2',
-      url: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1200&q=80',
-      title: {
-        en: 'Royal Silk & Heritage',
-        ta: 'பாரம்பரிய பட்டு அழகு',
-        hi: 'शाही रेशमी श्रृंगार',
-      },
-      category: 'traditional',
-    },
-    {
-      id: 'photo-3',
-      url: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80',
-      title: {
-        en: 'Whispers of Forever',
-        ta: 'இணையற்ற அன்புப் பிணைப்பு',
-        hi: 'सदा के लिए साथ',
+        en: 'Kavya & Yogesh — Together in Love',
+        ta: 'காவ்யா & யோகேஷ் — அன்புப் பிணைப்பு',
+        hi: 'काव्या एवं योगेश — साथ-साथ सदा',
       },
       category: 'candid',
     },
     {
-      id: 'photo-4',
-      url: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80',
+      id: 'photo-2',
+      url: '/assets/images/kavya-portrait.jpg',
       title: {
-        en: 'Temple Architecture & Sunset',
-        ta: 'மாலை நேரக் கோவில் பின்னணி',
-        hi: 'मंदिर का पावन प्रांगण',
+        en: 'The Radiant Bride — Kavya',
+        ta: 'மகிழ்ச்சி பூக்கும் மணமகள் — காவ்யா',
+        hi: 'मनमोहक दुल्हन — काव्या',
       },
-      category: 'prewedding',
+      category: 'portrait',
     },
     {
-      id: 'photo-5',
-      url: 'https://images.unsplash.com/photo-1609151162377-794fa68b02f1?auto=format&fit=crop&w=1200&q=80',
+      id: 'photo-3',
+      url: '/assets/images/yogesh-portrait.jpg',
       title: {
-        en: 'Jasmine Fragrance & Gold Zari',
-        ta: 'மல்லிகைப் பூவும் பொன் ஜரிகையும்',
-        hi: 'मोगरे की महक और स्वर्ण ज़री',
+        en: 'The Handsome Groom — Yogesh Mudaliar',
+        ta: 'கம்பீர மணமகன் — யோகேஷ் முதலியார்',
+        hi: 'आकर्षक दूल्हा — योगेश मुदलियार',
+      },
+      category: 'portrait',
+    },
+    {
+      id: 'photo-4',
+      url: '/assets/images/kavya-full.jpg',
+      title: {
+        en: 'Graceful Moments & Joy',
+        ta: 'அமைதியும் அழகும் நிறைந்த தருணம்',
+        hi: 'शालीनता और सहज सुंदरता',
       },
       category: 'traditional',
     },
     {
-      id: 'photo-6',
-      url: 'https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&fit=crop&w=1200&q=80',
+      id: 'photo-5',
+      url: '/assets/art/couple-hands.png',
       title: {
-        en: 'Hand in Hand, Step by Step',
-        ta: 'கை கோர்த்து நடக்கும் பயணம்',
-        hi: 'थामे एक-दूजे का हाथ',
+        en: 'Sacred Hand in Hand (Panigrahana)',
+        ta: 'பாணிகிரகணம் — கை பிடிக்கும் பந்தம்',
+        hi: 'पाणिग्रहण — जन्मों का पवित्र बंधन',
       },
-      category: 'portrait',
+      category: 'traditional',
     },
   ],
 
@@ -372,14 +361,14 @@ export const weddingData: WeddingData = {
     {
       year: '2023',
       title: {
-        en: 'A Melody in Chennai',
-        ta: 'சென்னையில் ஒரு ராக சங்கமம்',
-        hi: 'चेन्नई में सुरों का संगम',
+        en: 'A Spark of Destiny',
+        ta: 'இரு உள்ளங்கள் இணைந்த இனிமையான தொடக்கம்',
+        hi: 'भाग्य का सुखद संयोग',
       },
       description: {
-        en: 'Our paths crossed during the historic Margazhi music festival in Mylapore. What started with a shared cup of filter coffee blossomed into an endless conversation.',
-        ta: 'மயிலாப்பூர் மார்கழி இசை விழாவின் போது சந்தித்தோம். கும்பகோணம் டிகிரி காபியுடன் தொடங்கிய பேச்சு வாழ்நாள் நட்பானது.',
-        hi: 'मायलापुर के संगीत समारोह में पहली मुलाकात हुई। एक कप फिल्टर कॉफी से शुरू हुई बातचीत अटूट बंधन में बदल गई।',
+        en: 'Kavya and Yogesh crossed paths and connected instantly. What started as simple, thoughtful conversations soon grew into deep respect, companionship, and boundless love.',
+        ta: 'காவ்யாவும் யோகேஷும் சந்தித்த அந்த முதல் தருணம், வாழ்வின் மறக்க முடியாத அழகான நட்பாகவும், பின் மாறாத பேரன்பாகவும் மலர்ந்தது.',
+        hi: 'काव्या और योगेश की पहली मुलाकात ने दोनों के दिलों को छू लिया। आत्मीय बातचीत जल्द ही अटूट प्रेम और विश्वास में बदल गई।',
       },
       iconName: 'music',
     },
@@ -391,21 +380,21 @@ export const weddingData: WeddingData = {
         hi: 'परिवारों का स्नेहिल मिलन',
       },
       description: {
-        en: 'With the blessings of our parents and elders over traditional lunch, two loving families discovered shared heritage, values, and boundless joy.',
+        en: 'With the blessings of our parents and elders, both families came together with pure joy to celebrate our union.',
         ta: 'பெரியோர்களின் ஆசியுடன் இரு குடும்பங்களும் ஒன்றாக அமர்ந்து இனிதே திருமணத்திற்குச் சம்மதம் தெரிவித்தனர்.',
-        hi: 'माता-पिता के सानिध्य में दोनों परिवारों का मंगल मिलन हुआ और विवाह की सहमति बनी।',
+        hi: 'माता-पिता एवं बड़े-बुजुर्गों के सानिध्य में दोनों परिवारों का मंगल मिलन हुआ और विवाह की सहमति बनी।',
       },
       iconName: 'heart',
     },
     {
       year: '2026',
       title: {
-        en: 'Two Souls, One Destiny',
+        en: 'Two Souls, One Sacred Bond',
         ta: 'இரு மனம் இணையும் சுப முகூர்த்தம்',
-        hi: 'दो आत्माएं, एक अटूट संकल्प',
+        hi: 'दो आत्माएं, एक पावन बंधन',
       },
       description: {
-        en: 'Now we step together into the sacred bond of Vivaham, under the divine canopy of God’s grace, surrounded by your warm prayers and blessings.',
+        en: 'Now Kavya & Yogesh step together into the sacred bond of Vivaham, under the divine canopy of God’s grace, surrounded by your warm prayers and blessings.',
         ta: 'இறைவன் அருளோடு, உங்களின் பொன்னான ஆசிகளுடன் புனிதமான இல்வாழ்க்கைப் பயணத்தைத் தொடங்குகிறோம்.',
         hi: 'अब हम प्रभु की कृपा और आप सभी के पावन आशीर्वाद से दांपत्य जीवन में प्रवेश कर रहे हैं।',
       },
@@ -416,17 +405,17 @@ export const weddingData: WeddingData = {
   // Translations dictionary for UI
   translations: {
     en: {
-      siteTitle: 'Royal South Indian Wedding Invitation',
+      siteTitle: 'Royal South Indian Wedding Invitation | Kavya & Yogesh',
       auspiciousInvocation: '|| Om Sri Ganeshayanamaha ||',
       tamilInvocation: '|| Om Vinayagane Potri ||',
       sacredShloka: 'மாங்கல்யம் தந்துனானேன மம ஜீவன ஹேதுனா | கண்டே பத்னாமி சுபகே சஞ்சீவ சரதஃ சதம் ||',
       sacredShlokaMeaning: '"This sacred cord, the source of my life and well-being, I tie around your neck, O blessed one; may you live happily with me for a hundred autumns."',
       envelopeSealText: 'TAP SEAL TO OPEN',
-      envelopeSubText: 'Royal Wedding Invitation of Kavya & Arjun',
+      envelopeSubText: 'Royal Wedding Invitation of Kavya & Yogesh',
       openDirectly: 'Enter Invitation Directly',
       curtainOpenAlert: 'Unfolding Royal Invitation...',
       heroEyebrow: 'WITH THE BLESSINGS OF GOD AND OUR FAMILIES',
-      togetherWithFamilies: 'Together with our families, we joyfully invite you to celebrate the sacred union of',
+      togetherWithFamilies: 'Together with our families, we joyfully invite you to celebrate the wedding of',
       ampersand: '&',
       weddingDateHighlight: 'FRIDAY, NOVEMBER 27, 2026',
       weddingCityHighlight: 'MYLAPORE, CHENNAI, TAMIL NADU',
@@ -467,7 +456,7 @@ export const weddingData: WeddingData = {
       shareWhatsAppBtn: 'Share on WhatsApp',
       copyLinkBtn: 'Copy Invitation Link',
       linkCopiedText: 'Invitation Link Copied to Clipboard!',
-      audioPlaying: 'Playing Mangala Vadyam Music',
+      audioPlaying: 'Playing Traditional Wedding Music',
       audioPaused: 'Music Paused • Click to Play',
       footerThankYou: 'With Love, Blessings & Gratitude',
       seeYouThere: 'We Look Forward to Welcoming You',
@@ -475,13 +464,13 @@ export const weddingData: WeddingData = {
       languageSelectLabel: 'Language / மொழி / भाषा',
     },
     ta: {
-      siteTitle: 'சுப முகூர்த்த திருமண அழைப்பிதழ்',
+      siteTitle: 'சுப முகூர்த்த திருமண அழைப்பிதழ் | காவ்யா & யோகேஷ்',
       auspiciousInvocation: '|| ஓம் ஸ்ரீ கணேசாய நமஹ ||',
       tamilInvocation: '|| ஓம் விநாயகனே போற்றி ||',
       sacredShloka: 'மாங்கல்யம் தந்துனானேன மம ஜீவன ஹேதுனா | கண்டே பத்னாமி சுபகே சஞ்சீவ சரதஃ சதம் ||',
       sacredShlokaMeaning: '"என் வாழ்வின் ஆதாரமாகிய இந்த மங்கல நாணை உன் கழுத்தில் பூட்டுகிறேன்; பாக்கியவதியே, என்னோடு நூறாண்டு காலம் இன்புற்று வாழ்வாயாக!"',
       envelopeSealText: 'முத்திரையைத் தொட்டுத் திறக்கவும்',
-      envelopeSubText: 'காவ்யா & அர்ஜுன் திருமண அழைப்பிதழ்',
+      envelopeSubText: 'காவ்யா & யோகேஷ் திருமண அழைப்பிதழ்',
       openDirectly: 'நேரடியாக உள்ளே செல்ல',
       curtainOpenAlert: 'அழைப்பிதழ் திறக்கப்படுகிறது...',
       heroEyebrow: 'இறைவன் அருளாலும் பெரியோர்களின் நல்லாசியோடும்',
@@ -534,13 +523,13 @@ export const weddingData: WeddingData = {
       languageSelectLabel: 'மொழி தெரிவு',
     },
     hi: {
-      siteTitle: 'शाही दक्षिण भारतीय विवाह निमंत्रण',
+      siteTitle: 'शाही दक्षिण भारतीय विवाह निमंत्रण | काव्या एवं योगेश',
       auspiciousInvocation: '|| ॐ श्री गणेशाय नमः ||',
       tamilInvocation: '|| ॐ विनायगने पोत्री ||',
       sacredShloka: 'मांगल्यं तन्तुनानेन मम जीवन हेतुना | कण्ठे बध्नामि सुभगे सञ्जीव शरदः शतम् ||',
       sacredShlokaMeaning: '"हे कल्याणी! मेरे जीवन का आधार रूप यह मंगलसूत्र तुम्हारे गले में बांधता हूँ; तुम मेरे साथ सौ वर्षों तक सुखपूर्वक जीवन व्यतीत करो।"',
       envelopeSealText: 'सील पर स्पर्श कर खोलें',
-      envelopeSubText: 'काव्या एवं अर्जुन का पावन विवाह निमंत्रण',
+      envelopeSubText: 'काव्या एवं योगेश का पावन विवाह निमंत्रण',
       openDirectly: 'सीधे प्रवेश करें',
       curtainOpenAlert: 'शाही निमंत्रण पत्र खुल रहा है...',
       heroEyebrow: 'भगवान और माता-पिता के पावन आशीर्वाद से',
@@ -580,12 +569,12 @@ export const weddingData: WeddingData = {
       venueDirectionsInfo: 'ऐतिहासिक मायलापुर में श्री कपालेश्वर मंदिर के समीप स्थित।',
       familyBlessingsTitle: 'पारिवारिक आशीर्वाद एवं कृतज्ञता',
       familyBlessingsSubtitle: 'माता-पिता एवं बुजुर्गों का मंगल आशीष',
-      familyBlessingText: 'हमारे इस नए जीवन के शुभारंभ पर आपका स्नेहिल सानिध्य और पावन आशीर्वाद ही हमारा सबसे बड़ा उपहार है। आप सपरिवार सादर आमंत्रित हैं।',
+      familyBlessिंगText: 'हमारे इस नए जीवन के शुभारंभ पर आपका स्नेहिल सानिध्य और पावन आशीर्वाद ही हमारा सबसे बड़ा उपहार है। आप सपरिवार सादर आमंत्रित हैं।',
       shareInvitationTitle: 'निमंत्रण साझा करें',
       shareWhatsAppBtn: 'व्हाट्सएप पर भेजें',
       copyLinkBtn: 'लिंक कॉपी करें',
       linkCopiedText: 'निमंत्रण लिंक कॉपी हो गया!',
-      audioPlaying: 'मंगल वाद्य संगीत बज रहा है',
+      audioPlaying: 'पारंपरिक विवाह संगीत बज रहा है',
       audioPaused: 'संगीत रुका हुआ है • सुनने के लिए क्लिक करें',
       footerThankYou: 'सस्नेह एवं कृतज्ञता सहित',
       seeYouThere: 'हम आपके आगमन की प्रतीक्षा में हैं',

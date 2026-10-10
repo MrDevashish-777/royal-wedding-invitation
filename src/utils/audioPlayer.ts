@@ -1,7 +1,7 @@
 /**
  * Audio Player for South Indian Wedding Background Music.
- * Uses HTML5 Audio with an automatic Web Audio API Carnatic Tanpura & Flute Drone synthesizer
- * fallback if an external audio file fails or isn't supplied.
+ * Uses the authentic soft instrumental wedding music from assets,
+ * with a soft, gentle ambient fallback.
  */
 
 class WeddingAudioManager {
@@ -15,10 +15,10 @@ class WeddingAudioManager {
 
   constructor() {
     if (typeof window !== 'undefined') {
-      // Create HTML audio element with royal shehnai / nadaswaram royalty free sound
-      this.audio = new Audio('https://cdn.pixabay.com/download/audio/2022/05/16/audio_c1e63a8a3f.mp3?filename=indian-flute-meditation-111867.mp3');
+      // Local bundled authentic soft instrumental wedding music
+      this.audio = new Audio('/assets/audio/wedding-music.mp3');
       this.audio.loop = true;
-      this.audio.volume = 0.45;
+      this.audio.volume = 0.35; // Soft and comfortable volume
 
       this.audio.addEventListener('play', () => {
         this.isPlayingState = true;
@@ -33,9 +33,9 @@ class WeddingAudioManager {
       });
 
       this.audio.addEventListener('error', () => {
-        console.warn('Audio file failed to load, switching seamlessly to Web Audio Carnatic synthesizer.');
+        console.log('Audio file fallback to gentle ambient drone.');
         if (this.isPlayingState) {
-          this.startCarnaticSynth();
+          this.startSoftAmbientSynth();
         }
       });
     }
@@ -56,19 +56,17 @@ class WeddingAudioManager {
   public async play(): Promise<boolean> {
     this.isPlayingState = true;
 
-    // Try HTML Audio first
     if (this.audio) {
       try {
         await this.audio.play();
         this.notifyListeners();
         return true;
       } catch (err) {
-        console.log('HTML5 audio play blocked or error, activating Carnatic Synth fallback:', err);
+        console.log('Autoplay deferred or audio element play error:', err);
       }
     }
 
-    // Fallback: Web Audio API Carnatic Tanpura / Flute Harmonics
-    this.startCarnaticSynth();
+    this.startSoftAmbientSynth();
     return true;
   }
 
@@ -77,7 +75,7 @@ class WeddingAudioManager {
     if (this.audio && !this.audio.paused) {
       this.audio.pause();
     }
-    this.stopCarnaticSynth();
+    this.stopSoftAmbientSynth();
     this.notifyListeners();
   }
 
@@ -96,13 +94,14 @@ class WeddingAudioManager {
   }
 
   /**
-   * Generates a warm, authentic South Indian temple ambience
-   * with Tanpura Sa-Pa drone and flute tones in Raga Mohanam / Hamsadhwani.
+   * Ultra-soft ambient sine wave tanpura drone (C# Sa-Pa-Sa) at low gentle volume
    */
-  private startCarnaticSynth() {
+  private startSoftAmbientSynth() {
     if (this.isSynthesizing) return;
     try {
-      const AudioContextClass = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
+      const AudioContextClass =
+        window.AudioContext ||
+        (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
       if (!AudioContextClass) return;
 
       this.audioCtx = new AudioContextClass();
@@ -111,67 +110,34 @@ class WeddingAudioManager {
       }
 
       this.synthGainNode = this.audioCtx.createGain();
-      this.synthGainNode.gain.setValueAtTime(0.01, this.audioCtx.currentTime);
-      this.synthGainNode.gain.linearRampToValueAtTime(0.25, this.audioCtx.currentTime + 1.5);
+      this.synthGainNode.gain.setValueAtTime(0.001, this.audioCtx.currentTime);
+      this.synthGainNode.gain.linearRampToValueAtTime(0.08, this.audioCtx.currentTime + 2.0); // very soft
       this.synthGainNode.connect(this.audioCtx.destination);
 
-      // Tanpura frequencies based on C# (138.59 Hz)
-      // Pa (G#3: 207.65 Hz), Sa (C#4: 277.18 Hz), Sa (C#4: 277.18 Hz), Kharaj Sa (C#3: 138.59 Hz)
-      const baseFreqs = [138.59, 207.65, 277.18, 554.37];
-      baseFreqs.forEach((freq, idx) => {
+      // Warm pure sine waves for soothing temple drone
+      const frequencies = [138.59, 207.65, 277.18]; // C#3, G#3, C#4
+      frequencies.forEach((freq, idx) => {
         if (!this.audioCtx || !this.synthGainNode) return;
         const osc = this.audioCtx.createOscillator();
         const oscGain = this.audioCtx.createGain();
 
-        osc.type = idx === 0 ? 'sawtooth' : 'triangle';
+        osc.type = 'sine'; // pure and soft, never harsh
         osc.frequency.setValueAtTime(freq, this.audioCtx.currentTime);
 
-        // Gentle chorus vibrato
-        const lfo = this.audioCtx.createOscillator();
-        const lfoGain = this.audioCtx.createGain();
-        lfo.frequency.value = 0.2 + idx * 0.1;
-        lfoGain.gain.value = 1.2;
-        lfo.connect(osc.frequency);
-        lfo.start();
-
-        oscGain.gain.setValueAtTime(0.08 / (idx + 1), this.audioCtx.currentTime);
+        oscGain.gain.setValueAtTime(0.04 / (idx + 1), this.audioCtx.currentTime);
         osc.connect(oscGain);
         oscGain.connect(this.synthGainNode);
         osc.start();
       });
 
-      // Gentle Mohanam scale flute notes every few seconds (Sa, Ri, Ga, Pa, Dha)
-      const mohanamNotes = [277.18, 311.13, 349.23, 415.30, 466.16, 554.37];
-      let noteIdx = 0;
-      this.intervalId = window.setInterval(() => {
-        if (!this.audioCtx || !this.synthGainNode || !this.isSynthesizing) return;
-        const fluteOsc = this.audioCtx.createOscillator();
-        const fluteGain = this.audioCtx.createGain();
-
-        fluteOsc.type = 'sine';
-        const targetFreq = mohanamNotes[noteIdx % mohanamNotes.length];
-        noteIdx = (noteIdx + 1 + Math.floor(Math.random() * 2)) % mohanamNotes.length;
-
-        fluteOsc.frequency.setValueAtTime(targetFreq, this.audioCtx.currentTime);
-        fluteGain.gain.setValueAtTime(0.001, this.audioCtx.currentTime);
-        fluteGain.gain.linearRampToValueAtTime(0.06, this.audioCtx.currentTime + 0.8);
-        fluteGain.gain.exponentialRampToValueAtTime(0.0001, this.audioCtx.currentTime + 3.2);
-
-        fluteOsc.connect(fluteGain);
-        fluteGain.connect(this.synthGainNode);
-
-        fluteOsc.start();
-        fluteOsc.stop(this.audioCtx.currentTime + 3.3);
-      }, 3500);
-
       this.isSynthesizing = true;
       this.notifyListeners();
     } catch (e) {
-      console.warn('Web Audio synthesis error:', e);
+      console.warn('Soft ambient synth error:', e);
     }
   }
 
-  private stopCarnaticSynth() {
+  private stopSoftAmbientSynth() {
     if (this.intervalId) {
       clearInterval(this.intervalId);
       this.intervalId = null;
