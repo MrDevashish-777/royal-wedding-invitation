@@ -126,7 +126,7 @@ export const SacredBond: React.FC<SacredBondProps> = ({ currentLang }) => {
           {/* Inner Arch with Image */}
           <div className="relative rounded-t-[130px] sm:rounded-t-[170px] rounded-b-2xl overflow-hidden border border-gold-400/50 shadow-inner group">
             <img
-              src="/assets/art/couple-hands.png"
+              src="/assets/art/south-indian-panigrahana.jpg"
               alt="Sacred Hand in Hand (Panigrahana) - V. Yogesh Mudaliar (Yash) & Kanagalakshmi Natarajan (Kavya)"
               className="w-full h-[460px] sm:h-[560px] object-cover object-center filter brightness-[1.02] contrast-[1.05] transition-transform duration-1000 group-hover:scale-105"
             />
