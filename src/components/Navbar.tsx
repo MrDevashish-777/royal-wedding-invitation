@@ -28,7 +28,6 @@ export const Navbar: React.FC<NavbarProps> = ({ currentLang, onLanguageChange })
     { href: '#date', label: currentLang === 'ta' ? 'சுப நாள்' : currentLang === 'hi' ? 'शुभ तिथि' : 'Date' },
     { href: '#ceremonies', label: currentLang === 'ta' ? 'வைபவங்கள்' : currentLang === 'hi' ? 'कार्यक्रम' : 'Ceremonies' },
     { href: '#couple', label: currentLang === 'ta' ? 'மணமக்கள்' : currentLang === 'hi' ? 'वर-वधु' : 'Couple' },
-    { href: '#gallery', label: currentLang === 'ta' ? 'படங்கள்' : currentLang === 'hi' ? 'चित्र दीर्घा' : 'Gallery' },
     { href: '#venue', label: currentLang === 'ta' ? 'மண்டபம்' : currentLang === 'hi' ? 'स्थल' : 'Venue' },
   ];
 

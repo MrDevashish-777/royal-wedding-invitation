@@ -7,7 +7,7 @@ import { DateScratchCard } from './components/DateScratchCard';
 import { CountdownTimer } from './components/CountdownTimer';
 import { CeremoniesList } from './components/CeremoniesList';
 import { CoupleStory } from './components/CoupleStory';
-import { PhotoGallery } from './components/PhotoGallery';
+import { SacredBond } from './components/SacredBond';
 import { VenueSection } from './components/VenueSection';
 import { FamilyBlessings } from './components/FamilyBlessings';
 import { Footer } from './components/Footer';
@@ -66,11 +66,11 @@ const AppContent: React.FC = () => {
         {/* Wedding Ceremonies & Events */}
         <CeremoniesList currentLang={currentLang} />
 
-        {/* The Couple & Love Story */}
+        {/* The Couple */}
         <CoupleStory currentLang={currentLang} />
 
-        {/* Photo Gallery & Lightbox */}
-        <PhotoGallery currentLang={currentLang} />
+        {/* Sacred Union Centerpiece (Panigrahana) */}
+        <SacredBond currentLang={currentLang} />
 
         {/* Venue Location & Navigation */}
         <VenueSection currentLang={currentLang} />
