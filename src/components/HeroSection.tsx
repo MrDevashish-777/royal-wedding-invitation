@@ -160,7 +160,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLang }) => {
             <img
               src="/assets/images/couple-together.jpg"
               alt="V. Yogesh Mudaliar and Kanagalakshmi Natarajan"
-              className="w-full h-full object-cover object-[center_35%] rounded-full filter brightness-100 contrast-105"
+              className="w-full h-full object-cover object-[center_24%] rounded-full filter brightness-100 contrast-105"
             />
           </div>
           <span
