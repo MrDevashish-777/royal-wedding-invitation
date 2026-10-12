@@ -13,7 +13,7 @@ interface CeremoniesListProps {
 export const CeremoniesList: React.FC<CeremoniesListProps> = ({ currentLang }) => {
   const t = weddingData.translations[currentLang];
   const { isDark } = useTheme();
-  const coupleNames = `${weddingData.couple.bride.name[currentLang]} & ${weddingData.couple.groom.name[currentLang]}`;
+  const coupleNames = `${weddingData.couple.groom.name[currentLang]} & ${weddingData.couple.bride.name[currentLang]}`;
 
   return (
     <section id="ceremonies" className="relative py-20 px-4 max-w-6xl mx-auto transition-colors duration-500">
@@ -41,9 +41,9 @@ export const CeremoniesList: React.FC<CeremoniesListProps> = ({ currentLang }) =
       {/* Grid of Event Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-12">
         {weddingData.events.map((event: CeremonyEvent) => {
-          const dateObj = new Date(event.date);
-          const dayNumber = dateObj.getDate() || '27';
-          const monthShort = dateObj.toLocaleString('en-US', { month: 'short' }).toUpperCase() || 'NOV';
+          const parts = event.date.split('-');
+          const dayNumber = parts[2] || '30';
+          const monthShort = 'NOV';
           const isMuhurtham = event.id === 'muhurtham';
 
           return (

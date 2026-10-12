@@ -185,7 +185,7 @@ export const DateScratchCard: React.FC<DateScratchCardProps> = ({ currentLang })
               isDark ? 'text-gold-400' : 'text-gold-700'
             }`}
           >
-            {currentLang === 'ta' ? 'வெள்ளிக்கிழமை' : currentLang === 'hi' ? 'शुक्रवार' : 'FRIDAY'}
+            {currentLang === 'ta' ? 'திங்கட்கிழமை' : currentLang === 'hi' ? 'सोमवार' : 'MONDAY'}
           </span>
 
           <div className="flex items-center justify-center space-x-3 my-1">
@@ -196,7 +196,7 @@ export const DateScratchCard: React.FC<DateScratchCardProps> = ({ currentLang })
                   : 'bg-gradient-to-b from-[#660C1E] via-[#8C162E] to-[#AA223E]'
               }`}
             >
-              27
+              30
             </span>
             <div className="flex flex-col text-left">
               <span

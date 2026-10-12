@@ -125,7 +125,7 @@ export const PhotoGallery: React.FC<PhotoGalleryProps> = ({ currentLang }) => {
                   {photo.title[currentLang]}
                 </p>
                 <p className="text-gold-300 text-xs font-cinzel tracking-wider uppercase drop-shadow-sm">
-                  {weddingData.couple.bride.name[currentLang]} & {weddingData.couple.groom.name[currentLang]}
+                  {weddingData.couple.groom.name[currentLang]} &amp; {weddingData.couple.bride.name[currentLang]}
                 </p>
               </div>
               <div className="w-8 h-8 rounded-full bg-gold-400/30 border border-gold-300/50 flex items-center justify-center text-gold-200 opacity-0 group-hover:opacity-100 transition-opacity">

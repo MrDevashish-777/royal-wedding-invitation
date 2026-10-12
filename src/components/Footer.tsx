@@ -54,7 +54,7 @@ export const Footer: React.FC<FooterProps> = ({ currentLang }) => {
             isDark ? 'text-ivory-50' : 'text-[#4A0814]'
           }`}
         >
-          {bride.name[currentLang]} &amp; {groom.name[currentLang]}
+          {groom.name[currentLang]} &amp; {bride.name[currentLang]}
         </h3>
 
         <p

@@ -132,16 +132,16 @@ export const OpeningEntrance: React.FC<OpeningEntranceProps> = ({ currentLang, o
             ROYAL WEDDING INVITATION
           </p>
 
-          {/* Couple Names */}
-          <h1 className="flex flex-col items-center space-y-0.5">
-            <span className="font-serif text-4xl sm:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-gold-100 via-gold-300 to-gold-400 tracking-wide font-bold drop-shadow-md">
-              {bride.name[currentLang]}
+          {/* Couple Names - Groom on top */}
+          <h1 className="flex flex-col items-center space-y-1">
+            <span className="font-serif text-3xl sm:text-5xl text-transparent bg-clip-text bg-gradient-to-r from-gold-100 via-gold-300 to-gold-400 tracking-wide font-bold drop-shadow-md text-center px-2">
+              {groom.name[currentLang]}
             </span>
             <span className="font-script text-3xl sm:text-4xl text-gold-300 my-0.5 select-none">
               &
             </span>
-            <span className="font-serif text-4xl sm:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-gold-100 via-gold-300 to-gold-400 tracking-wide font-bold drop-shadow-md">
-              {groom.name[currentLang]}
+            <span className="font-serif text-3xl sm:text-5xl text-transparent bg-clip-text bg-gradient-to-r from-gold-100 via-gold-300 to-gold-400 tracking-wide font-bold drop-shadow-md text-center px-2">
+              {bride.name[currentLang]}
             </span>
           </h1>
 
@@ -161,7 +161,7 @@ export const OpeningEntrance: React.FC<OpeningEntranceProps> = ({ currentLang, o
             >
               <div className="absolute inset-1.5 rounded-full border border-dashed border-[#5C3A0A]/50 flex flex-col items-center justify-center p-2 text-center">
                 <span className="text-maroon-950 font-serif font-black text-2xl sm:text-3xl tracking-tighter drop-shadow-sm leading-none">
-                  K & Y
+                  Y & K
                 </span>
                 <span className="text-maroon-950 font-cinzel font-bold text-[9px] sm:text-[10px] tracking-wider uppercase mt-1 leading-tight">
                   {currentLang === 'ta' ? 'திறக்கவும்' : currentLang === 'hi' ? 'खोलें' : 'OPEN'}

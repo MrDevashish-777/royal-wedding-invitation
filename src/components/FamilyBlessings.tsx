@@ -25,11 +25,11 @@ export const FamilyBlessings: React.FC<FamilyBlessingsProps> = ({ currentLang })
 
     let message = '';
     if (currentLang === 'ta') {
-      message = `🙏 சுப முகூர்த்த திருமண அழைப்பிதழ் 🙏\n\n${brideName} & ${groomName} அவர்களின் திருமண மங்கள விழாவிற்கு தங்களை அன்போடு அழைக்கிறோம்!\n\n📅 நாள்: ${dateFormatted}\n📍 இடம்: ${venue}\n\nஎங்களின் திருமண அழைப்பிதழைக் காண:\n${currentUrl}`;
+      message = `🙏 சுப முகூர்த்த திருமண அழைப்பிதழ் 🙏\n\n${groomName} & ${brideName} அவர்களின் திருமண மங்கள விழாவிற்கு தங்களை அன்போடு அழைக்கிறோம்!\n\n📅 நாள்: ${dateFormatted}\n📍 இடம்: ${venue}\n\nஎங்களின் திருமண அழைப்பிதழைக் காண:\n${currentUrl}`;
     } else if (currentLang === 'hi') {
-      message = `🙏 शुभ विवाह निमंत्रण 🙏\n\nआप सपरिवार ${brideName} एवं ${groomName} के पावन विवाह उत्सव में सादर आमंत्रित हैं!\n\n📅 तिथि: ${dateFormatted}\n📍 स्थल: ${venue}\n\nहमारा डिजिटल विवाह निमंत्रण पत्र देखें:\n${currentUrl}`;
+      message = `🙏 शुभ विवाह निमंत्रण 🙏\n\nआप सपरिवार ${groomName} एवं ${brideName} के पावन विवाह उत्सव में सादर आमंत्रित हैं!\n\n📅 तिथि: ${dateFormatted}\n📍 स्थल: ${venue}\n\nहमारा डिजिटल विवाह निमंत्रण पत्र देखें:\n${currentUrl}`;
     } else {
-      message = `✨ Royal Wedding Invitation ✨\n\nYou are warmly invited to celebrate the wedding of ${brideName} & ${groomName}!\n\n📅 Date: ${dateFormatted}\n📍 Venue: ${venue}\n\nView our wedding invitation:\n${currentUrl}`;
+      message = `✨ Royal Wedding Invitation ✨\n\nYou are warmly invited to celebrate the wedding of ${groomName} & ${brideName}!\n\n📅 Date: ${dateFormatted}\n📍 Venue: ${venue}\n\nView our wedding invitation:\n${currentUrl}`;
     }
 
     return `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
@@ -51,7 +51,7 @@ export const FamilyBlessings: React.FC<FamilyBlessingsProps> = ({ currentLang })
       try {
         await navigator.share({
           title: t.siteTitle,
-          text: `${bride.name[currentLang]} & ${groom.name[currentLang]} Wedding Invitation`,
+          text: `${groom.name[currentLang]} & ${bride.name[currentLang]} Wedding Invitation`,
           url: currentUrl,
         });
       } catch (err) {
@@ -150,7 +150,7 @@ export const FamilyBlessings: React.FC<FamilyBlessingsProps> = ({ currentLang })
           {t.familyBlessingText}
         </p>
 
-        {/* Family Names */}
+        {/* Family Names - Groom Family First */}
         <div
           className={`grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-lg mx-auto py-4 border-y my-6 ${
             isDark ? 'border-gold-500/20' : 'border-gold-500/30'
@@ -162,13 +162,16 @@ export const FamilyBlessings: React.FC<FamilyBlessingsProps> = ({ currentLang })
                 isDark ? 'text-gold-300' : 'text-gold-800'
               }`}
             >
-              Bride's Family
+              {currentLang === 'ta' ? 'மணமகன் குடும்பத்தார்' : currentLang === 'hi' ? 'वर पक्ष' : "Groom's Family"}
             </p>
             <p className={`font-serif text-base font-bold mt-1 ${isDark ? 'text-ivory-100' : 'text-[#4A0E17]'}`}>
-              Sri. R. Krishnan
+              Mr. S. Venkatesh
             </p>
             <p className={`font-serif text-sm ${isDark ? 'text-ivory-300' : 'text-[#6B4E32]'}`}>
-              &amp; Smt. Geetha Krishnan
+              &amp; Mrs. V. Rashmi
+            </p>
+            <p className={`text-xs font-cinzel tracking-wider mt-0.5 ${isDark ? 'text-gold-400/90' : 'text-gold-700'}`}>
+              (Perumpalai)
             </p>
           </div>
 
@@ -182,13 +185,16 @@ export const FamilyBlessings: React.FC<FamilyBlessingsProps> = ({ currentLang })
                 isDark ? 'text-gold-300' : 'text-gold-800'
               }`}
             >
-              Groom's Family
+              {currentLang === 'ta' ? 'மணமகள் குடும்பத்தார்' : currentLang === 'hi' ? 'वधु पक्ष' : "Bride's Family"}
             </p>
             <p className={`font-serif text-base font-bold mt-1 ${isDark ? 'text-ivory-100' : 'text-[#4A0E17]'}`}>
-              Sri. S. Mudaliar
+              Mr. Natarajan Rathinasabapathy
             </p>
             <p className={`font-serif text-sm ${isDark ? 'text-ivory-300' : 'text-[#6B4E32]'}`}>
-              &amp; Smt. Lakshmi Mudaliar
+              &amp; Mrs. Shanthi Natarajan
+            </p>
+            <p className={`text-xs font-cinzel tracking-wider mt-0.5 ${isDark ? 'text-gold-400/90' : 'text-gold-700'}`}>
+              (Chennai)
             </p>
           </div>
         </div>

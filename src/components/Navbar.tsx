@@ -66,14 +66,14 @@ export const Navbar: React.FC<NavbarProps> = ({ currentLang, onLanguageChange })
                 : 'border-gold-500 bg-[#F5ECD5] text-[#7A4B0A] group-hover:border-gold-600 shadow-sm'
             }`}
           >
-            K&Y
+            Y&K
           </span>
           <span
             className={`font-serif text-lg tracking-wider hidden sm:inline transition-colors ${
               isDark ? 'text-ivory-100 group-hover:text-gold-200' : 'text-[#4A0E17] group-hover:text-gold-700 font-semibold'
             }`}
           >
-            Kavya & Yogesh
+            Yogesh &amp; Kavya
           </span>
         </a>
 

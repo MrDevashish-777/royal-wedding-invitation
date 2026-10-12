@@ -19,7 +19,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         return savedTheme;
       }
     }
-    return 'dark'; // Default to regal dark maroon, toggleable to ivory light
+    return 'light'; // Default to royal ivory silk light theme
   });
 
   useEffect(() => {

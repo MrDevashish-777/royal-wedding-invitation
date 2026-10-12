@@ -159,7 +159,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLang }) => {
           >
             <img
               src="/assets/images/couple-together.jpg"
-              alt="Kavya and Yogesh Mudaliar"
+              alt="V. Yogesh Mudaliar and Kanagalakshmi Natarajan"
               className="w-full h-full object-cover rounded-full filter brightness-100 contrast-105"
             />
           </div>
@@ -170,7 +170,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLang }) => {
                 : 'text-maroon-950 bg-[#FBF3DC] border-gold-500/70'
             }`}
           >
-            K & Y
+            Y & K
           </span>
         </div>
 
@@ -183,23 +183,23 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLang }) => {
           {t.togetherWithFamilies}
         </p>
 
-        {/* Main Focus: Couple Names */}
+        {/* Main Focus: Couple Names - Groom on Top */}
         <div className="my-3 sm:my-5">
           <h2
-            className={`font-serif text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight drop-shadow-md ${
+            className={`font-serif text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight drop-shadow-md leading-tight ${
               isDark
                 ? 'text-transparent bg-clip-text bg-gradient-to-r from-gold-100 via-gold-300 to-gold-400'
                 : 'text-transparent bg-clip-text bg-gradient-to-r from-[#660C1E] via-[#8C162E] to-[#660C1E]'
             }`}
           >
-            {bride.name[currentLang]}
+            {groom.name[currentLang]}
           </h2>
           <p
-            className={`text-xs sm:text-sm font-serif italic mt-1 mb-2 ${
-              isDark ? 'text-gold-200/80' : 'text-[#7A4B1A]'
+            className={`text-xs sm:text-sm font-serif italic mt-1.5 mb-2 font-medium ${
+              isDark ? 'text-gold-200/90' : 'text-[#7A4B1A]'
             }`}
           >
-            {bride.parents[currentLang]}
+            {groom.parents[currentLang]}
           </p>
 
           {/* Ornamental Ampersand */}
@@ -224,20 +224,20 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLang }) => {
           </div>
 
           <h2
-            className={`font-serif text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight drop-shadow-md ${
+            className={`font-serif text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight drop-shadow-md leading-tight ${
               isDark
                 ? 'text-transparent bg-clip-text bg-gradient-to-r from-gold-100 via-gold-300 to-gold-400'
                 : 'text-transparent bg-clip-text bg-gradient-to-r from-[#660C1E] via-[#8C162E] to-[#660C1E]'
             }`}
           >
-            {groom.name[currentLang]}
+            {bride.name[currentLang]}
           </h2>
           <p
-            className={`text-xs sm:text-sm font-serif italic mt-1 ${
-              isDark ? 'text-gold-200/80' : 'text-[#7A4B1A]'
+            className={`text-xs sm:text-sm font-serif italic mt-1.5 font-medium ${
+              isDark ? 'text-gold-200/90' : 'text-[#7A4B1A]'
             }`}
           >
-            {groom.parents[currentLang]}
+            {bride.parents[currentLang]}
           </p>
         </div>
 
