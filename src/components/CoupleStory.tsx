@@ -67,7 +67,7 @@ export const CoupleStory: React.FC<CoupleStoryProps> = ({ currentLang }) => {
             <img
               src={groom.photo}
               alt={groom.fullName[currentLang]}
-              className="w-full h-full object-cover rounded-full filter brightness-95 contrast-105 group-hover:scale-105 transition-transform duration-500"
+              className="w-full h-full object-cover object-[center_18%] rounded-full filter brightness-100 contrast-105 group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
             />
           </div>
@@ -202,7 +202,7 @@ export const CoupleStory: React.FC<CoupleStoryProps> = ({ currentLang }) => {
             <img
               src={bride.photo}
               alt={bride.fullName[currentLang]}
-              className="w-full h-full object-cover rounded-full filter brightness-95 contrast-105 group-hover:scale-105 transition-transform duration-500"
+              className="w-full h-full object-cover object-[center_20%] rounded-full filter brightness-100 contrast-105 group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
             />
           </div>
