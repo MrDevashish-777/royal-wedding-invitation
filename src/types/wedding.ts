@@ -94,6 +94,21 @@ export interface WeddingData {
         ta: string;
         hi: string;
       };
+      education?: {
+        en: string;
+        ta: string;
+        hi: string;
+      };
+      profession?: {
+        en: string;
+        ta: string;
+        hi: string;
+      };
+      location?: {
+        en: string;
+        ta: string;
+        hi: string;
+      };
       parents: {
         en: string;
         ta: string;
@@ -118,6 +133,21 @@ export interface WeddingData {
         hi: string;
       };
       title: {
+        en: string;
+        ta: string;
+        hi: string;
+      };
+      education?: {
+        en: string;
+        ta: string;
+        hi: string;
+      };
+      profession?: {
+        en: string;
+        ta: string;
+        hi: string;
+      };
+      location?: {
         en: string;
         ta: string;
         hi: string;

@@ -1,4 +1,5 @@
 import React from 'react';
+import { GraduationCap, Briefcase } from 'lucide-react';
 import { SupportedLanguage } from '../types/wedding';
 import { weddingData } from '../data/weddingData';
 import { useTheme } from '../context/ThemeContext';
@@ -94,8 +95,78 @@ export const CoupleStory: React.FC<CoupleStoryProps> = ({ currentLang }) => {
           >
             {groom.parents[currentLang]}
           </p>
+
+          {/* Education & Career Credentials */}
+          <div
+            className={`my-4 p-3.5 rounded-2xl border text-left flex flex-col gap-2.5 transition-colors ${
+              isDark
+                ? 'bg-maroon-950/60 border-gold-500/25'
+                : 'bg-[#FAF3E3] border-gold-400/60 shadow-sm'
+            }`}
+          >
+            {groom.education && (
+              <div className="flex items-center gap-2.5">
+                <div
+                  className={`p-1.5 rounded-lg border flex-shrink-0 ${
+                    isDark
+                      ? 'bg-gold-500/10 border-gold-400/30 text-gold-300'
+                      : 'bg-white border-gold-400/50 text-gold-700 shadow-xs'
+                  }`}
+                >
+                  <GraduationCap className="w-4 h-4" />
+                </div>
+                <div className="min-w-0">
+                  <p
+                    className={`text-[10px] font-cinzel tracking-wider uppercase font-semibold ${
+                      isDark ? 'text-gold-400/80' : 'text-gold-800'
+                    }`}
+                  >
+                    {currentLang === 'ta' ? 'கல்வித் தகுதி' : currentLang === 'hi' ? 'शिक्षा' : 'Education'}
+                  </p>
+                  <p
+                    className={`text-xs sm:text-sm font-serif font-bold tracking-wide ${
+                      isDark ? 'text-ivory-100' : 'text-[#4A0E17]'
+                    }`}
+                  >
+                    {groom.education[currentLang]}
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {groom.profession && (
+              <div className="flex items-center gap-2.5">
+                <div
+                  className={`p-1.5 rounded-lg border flex-shrink-0 ${
+                    isDark
+                      ? 'bg-gold-500/10 border-gold-400/30 text-gold-300'
+                      : 'bg-white border-gold-400/50 text-gold-700 shadow-xs'
+                  }`}
+                >
+                  <Briefcase className="w-4 h-4" />
+                </div>
+                <div className="min-w-0">
+                  <p
+                    className={`text-[10px] font-cinzel tracking-wider uppercase font-semibold ${
+                      isDark ? 'text-gold-400/80' : 'text-gold-800'
+                    }`}
+                  >
+                    {currentLang === 'ta' ? 'பணி / நிறுவனம்' : currentLang === 'hi' ? 'कार्यक्षेत्र' : 'Profession & Location'}
+                  </p>
+                  <p
+                    className={`text-xs sm:text-sm font-serif font-bold tracking-wide ${
+                      isDark ? 'text-ivory-100' : 'text-[#4A0E17]'
+                    }`}
+                  >
+                    {groom.profession[currentLang]}
+                  </p>
+                </div>
+              </div>
+            )}
+          </div>
+
           <p
-            className={`text-xs sm:text-sm font-cormorant leading-relaxed px-2 ${
+            className={`text-xs sm:text-sm font-cormorant leading-relaxed px-2 italic ${
               isDark ? 'text-ivory-200/80' : 'text-[#472E33]'
             }`}
           >
@@ -159,8 +230,78 @@ export const CoupleStory: React.FC<CoupleStoryProps> = ({ currentLang }) => {
           >
             {bride.parents[currentLang]}
           </p>
+
+          {/* Education & Career Credentials */}
+          <div
+            className={`my-4 p-3.5 rounded-2xl border text-left flex flex-col gap-2.5 transition-colors ${
+              isDark
+                ? 'bg-maroon-950/60 border-gold-500/25'
+                : 'bg-[#FAF3E3] border-gold-400/60 shadow-sm'
+            }`}
+          >
+            {bride.education && (
+              <div className="flex items-center gap-2.5">
+                <div
+                  className={`p-1.5 rounded-lg border flex-shrink-0 ${
+                    isDark
+                      ? 'bg-gold-500/10 border-gold-400/30 text-gold-300'
+                      : 'bg-white border-gold-400/50 text-gold-700 shadow-xs'
+                  }`}
+                >
+                  <GraduationCap className="w-4 h-4" />
+                </div>
+                <div className="min-w-0">
+                  <p
+                    className={`text-[10px] font-cinzel tracking-wider uppercase font-semibold ${
+                      isDark ? 'text-gold-400/80' : 'text-gold-800'
+                    }`}
+                  >
+                    {currentLang === 'ta' ? 'கல்வித் தகுதி' : currentLang === 'hi' ? 'शिक्षा' : 'Education'}
+                  </p>
+                  <p
+                    className={`text-xs sm:text-sm font-serif font-bold tracking-wide ${
+                      isDark ? 'text-ivory-100' : 'text-[#4A0E17]'
+                    }`}
+                  >
+                    {bride.education[currentLang]}
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {bride.profession && (
+              <div className="flex items-center gap-2.5">
+                <div
+                  className={`p-1.5 rounded-lg border flex-shrink-0 ${
+                    isDark
+                      ? 'bg-gold-500/10 border-gold-400/30 text-gold-300'
+                      : 'bg-white border-gold-400/50 text-gold-700 shadow-xs'
+                  }`}
+                >
+                  <Briefcase className="w-4 h-4" />
+                </div>
+                <div className="min-w-0">
+                  <p
+                    className={`text-[10px] font-cinzel tracking-wider uppercase font-semibold ${
+                      isDark ? 'text-gold-400/80' : 'text-gold-800'
+                    }`}
+                  >
+                    {currentLang === 'ta' ? 'பணி / நிறுவனம்' : currentLang === 'hi' ? 'कार्यक्षेत्र' : 'Profession & Location'}
+                  </p>
+                  <p
+                    className={`text-xs sm:text-sm font-serif font-bold tracking-wide ${
+                      isDark ? 'text-ivory-100' : 'text-[#4A0E17]'
+                    }`}
+                  >
+                    {bride.profession[currentLang]}
+                  </p>
+                </div>
+              </div>
+            )}
+          </div>
+
           <p
-            className={`text-xs sm:text-sm font-cormorant leading-relaxed px-2 ${
+            className={`text-xs sm:text-sm font-cormorant leading-relaxed px-2 italic ${
               isDark ? 'text-ivory-200/80' : 'text-[#472E33]'
             }`}
           >

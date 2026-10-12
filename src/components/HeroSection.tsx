@@ -194,8 +194,17 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLang }) => {
           >
             {groom.name[currentLang]}
           </h2>
+          {groom.education && (
+            <p
+              className={`text-xs sm:text-sm font-cinzel tracking-wider uppercase font-semibold mt-1 ${
+                isDark ? 'text-gold-300/90' : 'text-[#8C162E]'
+              }`}
+            >
+              {groom.education[currentLang]} &bull; {groom.profession?.[currentLang]}
+            </p>
+          )}
           <p
-            className={`text-xs sm:text-sm font-serif italic mt-1.5 mb-2 font-medium ${
+            className={`text-xs sm:text-sm font-serif italic mt-1 mb-2 font-medium ${
               isDark ? 'text-gold-200/90' : 'text-[#7A4B1A]'
             }`}
           >
@@ -232,8 +241,17 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLang }) => {
           >
             {bride.name[currentLang]}
           </h2>
+          {bride.education && (
+            <p
+              className={`text-xs sm:text-sm font-cinzel tracking-wider uppercase font-semibold mt-1 ${
+                isDark ? 'text-gold-300/90' : 'text-[#8C162E]'
+              }`}
+            >
+              {bride.education[currentLang]}
+            </p>
+          )}
           <p
-            className={`text-xs sm:text-sm font-serif italic mt-1.5 font-medium ${
+            className={`text-xs sm:text-sm font-serif italic mt-1 font-medium ${
               isDark ? 'text-gold-200/90' : 'text-[#7A4B1A]'
             }`}
           >

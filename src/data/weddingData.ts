@@ -30,6 +30,21 @@ export const weddingData: WeddingData = {
         ta: 'மணமகன்',
         hi: 'दूल्हा',
       },
+      education: {
+        en: 'B.Tech in IT',
+        ta: 'B.Tech (IT)',
+        hi: 'बी.टेक (आईटी)',
+      },
+      profession: {
+        en: 'Tata Consultancy Services (TCS), Canada',
+        ta: 'டாடா கன்சல்டன்சி சர்வீசஸ் (TCS), கனடா',
+        hi: 'टीसीएस (TCS), कनाडा',
+      },
+      location: {
+        en: 'Canada',
+        ta: 'கனடா',
+        hi: 'कनाडा',
+      },
       parents: {
         en: 'S/o. Mr. S. Venkatesh & Mrs. V. Rashmi (Perumpalai)',
         ta: 'திரு. எஸ். வெங்கடேஷ் & திருமதி. வி. ரஷ்மி அவர்களின் புதல்வன் (பெரும்பாலை)',
@@ -37,9 +52,9 @@ export const weddingData: WeddingData = {
       },
       photo: '/assets/images/yogesh-portrait.jpg',
       bio: {
-        en: 'Caring, ambitious, and passionate about life, values, and community.',
-        ta: 'நேர்மையும் தன்னம்பிக்கையும் கொண்ட, பண்பும் பாசமும் மிக்க நற்பண்பாளர்.',
-        hi: 'उत्साही, विचारशील और अपने दायित्वों के प्रति समर्पित।',
+        en: 'B.Tech in IT graduate, currently working with Tata Consultancy Services (TCS) in Canada. Thoughtful, ambitious, and deeply grounded in family values.',
+        ta: 'தகவல் தொழில்நுட்பத்தில் B.Tech பட்டம் பெற்று, கனடாவில் TCS நிறுவனத்தில் பணியாற்றி வரும் அன்பும், பண்பும் மிக்க நற்பண்பாளர்.',
+        hi: 'आईटी में बी.टेक स्नातक, वर्तमान में टीसीएस (TCS) कनाडा में कार्यरत। विचारशील, परिश्रमी एवं पारिवारिक संस्कारों से युक्त।',
       },
     },
     bride: {
@@ -58,6 +73,21 @@ export const weddingData: WeddingData = {
         ta: 'மணமகள்',
         hi: 'दुल्हन',
       },
+      education: {
+        en: 'B.Arch, PG Dip Arch Tech (Canada)',
+        ta: 'B.Arch, PG Dip Arch Tech (கனடா)',
+        hi: 'बी.आर्क, पीजी डिप आर्च टेक (कनाडा)',
+      },
+      profession: {
+        en: 'Architectural Technologist, Canada',
+        ta: 'கட்டடக்கலை வடிவமைப்பு, கனடா',
+        hi: 'वास्तुकला प्रौद्योगिकी, कनाडा',
+      },
+      location: {
+        en: 'Canada',
+        ta: 'கனடா',
+        hi: 'कनाडा',
+      },
       parents: {
         en: 'D/o. Mr. Natarajan Rathinasabapathy & Mrs. Shanthi Natarajan (Chennai)',
         ta: 'திரு. நடராஜன் ரத்தினசபாபதி & திருமதி. சாந்தி நடராஜன் அவர்களின் புதல்வி (சென்னை)',
@@ -65,9 +95,9 @@ export const weddingData: WeddingData = {
       },
       photo: '/assets/images/kavya-portrait.jpg',
       bio: {
-        en: 'Radiant, gentle-hearted, and deeply cherished by family and friends.',
-        ta: 'அன்பும் பண்பும் நிறைந்த, அனைவரின் நன்மதிப்பைப் பெற்ற பாசமிகு மகள்.',
-        hi: 'स्नेहमयी, शालीन और पारिवारिक मूल्यों को संजोने वाली।',
+        en: 'B.Arch graduate with a Postgraduate Diploma in Architectural Technology from Canada. Creative, graceful, and deeply cherished by family and friends.',
+        ta: 'கட்டடக்கலையில் B.Arch மற்றும் கனடாவில் PG Dip Arch Tech முடித்த, அன்பும் கலை உணர்வும் நிறைந்த பாசமிகு மகள்.',
+        hi: 'बी.आर्क एवं कनाडा से पीजी डिप्लोमा इन आर्किटेक्चरल टेक्नोलॉजी, सुरुचिपूर्ण, सौम्य और स्नेहमयी।',
       },
     },
   },
