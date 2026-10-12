@@ -15,8 +15,8 @@ class WeddingAudioManager {
 
   constructor() {
     if (typeof window !== 'undefined') {
-      // Local bundled authentic soft instrumental wedding music
-      this.audio = new Audio('/assets/audio/wedding-music.mp3');
+      // Local bundled authentic soft instrumental wedding music (Mangalyam Tantunanena - Alaipayuthey)
+      this.audio = new Audio('/assets/audio/mangalyam.mp3');
       this.audio.loop = true;
       this.audio.volume = 0.35; // Soft and comfortable volume
 
