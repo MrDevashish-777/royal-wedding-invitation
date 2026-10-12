@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Copy, Check, MessageCircle } from 'lucide-react';
 import { SupportedLanguage } from '../types/wedding';
 import { weddingData } from '../data/weddingData';
+import { useTheme } from '../context/ThemeContext';
 import { GoldFiligreeDivider, CornerOrnament, PoornakumbhamKalash } from './Motifs';
 
 interface FamilyBlessingsProps {
@@ -12,10 +13,10 @@ export const FamilyBlessings: React.FC<FamilyBlessingsProps> = ({ currentLang })
   const [copied, setCopied] = useState(false);
   const t = weddingData.translations[currentLang];
   const { bride, groom } = weddingData.couple;
+  const { isDark } = useTheme();
 
   const currentUrl = typeof window !== 'undefined' ? window.location.href : weddingData.websiteUrl;
 
-  // Create WhatsApp share URL with pre-filled message
   const getWhatsAppShareUrl = () => {
     const brideName = bride.name[currentLang];
     const groomName = groom.name[currentLang];
@@ -40,7 +41,6 @@ export const FamilyBlessings: React.FC<FamilyBlessingsProps> = ({ currentLang })
       setCopied(true);
       setTimeout(() => setCopied(false), 3000);
     } catch {
-      // Fallback
       setCopied(true);
       setTimeout(() => setCopied(false), 3000);
     }
@@ -63,61 +63,143 @@ export const FamilyBlessings: React.FC<FamilyBlessingsProps> = ({ currentLang })
   };
 
   return (
-    <section id="blessings" className="relative py-20 px-4 max-w-4xl mx-auto">
+    <section id="blessings" className="relative py-20 px-4 max-w-4xl mx-auto transition-colors duration-500">
       {/* Central Blessing Card */}
-      <div className="relative p-8 sm:p-12 rounded-3xl border border-gold-400/50 bg-gradient-to-b from-[#35070E]/90 via-[#240409]/95 to-[#160205]/98 backdrop-blur-md shadow-[0_20px_50px_rgba(0,0,0,0.7)] text-center">
-        <CornerOrnament position="top-left" className="absolute top-2.5 left-2.5 w-10 h-10 text-gold-400/60" />
-        <CornerOrnament position="top-right" className="absolute top-2.5 right-2.5 w-10 h-10 text-gold-400/60" />
-        <CornerOrnament position="bottom-left" className="absolute bottom-2.5 left-2.5 w-10 h-10 text-gold-400/60" />
-        <CornerOrnament position="bottom-right" className="absolute bottom-2.5 right-2.5 w-10 h-10 text-gold-400/60" />
+      <div
+        className={`relative p-8 sm:p-12 rounded-3xl border backdrop-blur-md text-center transition-all duration-300 ${
+          isDark
+            ? 'border-gold-400/50 bg-gradient-to-b from-[#35070E]/90 via-[#240409]/95 to-[#160205]/98 shadow-[0_20px_50px_rgba(0,0,0,0.7)]'
+            : 'border-gold-400/70 bg-gradient-to-b from-[#FFFFFF]/98 via-[#FFFDF8]/98 to-[#FDF8ED]/98 shadow-[0_20px_50px_rgba(170,120,30,0.12)]'
+        }`}
+      >
+        <CornerOrnament
+          position="top-left"
+          className={`absolute top-2.5 left-2.5 w-10 h-10 ${isDark ? 'text-gold-400/60' : 'text-gold-600/70'}`}
+        />
+        <CornerOrnament
+          position="top-right"
+          className={`absolute top-2.5 right-2.5 w-10 h-10 ${isDark ? 'text-gold-400/60' : 'text-gold-600/70'}`}
+        />
+        <CornerOrnament
+          position="bottom-left"
+          className={`absolute bottom-2.5 left-2.5 w-10 h-10 ${isDark ? 'text-gold-400/60' : 'text-gold-600/70'}`}
+        />
+        <CornerOrnament
+          position="bottom-right"
+          className={`absolute bottom-2.5 right-2.5 w-10 h-10 ${isDark ? 'text-gold-400/60' : 'text-gold-600/70'}`}
+        />
 
         {/* Sacred Kalash at top */}
         <div className="flex justify-center mb-3">
-          <PoornakumbhamKalash className="w-14 h-16 text-gold-300 drop-shadow-[0_0_15px_rgba(212,175,55,0.5)]" />
+          <PoornakumbhamKalash
+            className={`w-14 h-16 ${
+              isDark
+                ? 'text-gold-300 drop-shadow-[0_0_15px_rgba(212,175,55,0.5)]'
+                : 'text-gold-600 drop-shadow-[0_0_12px_rgba(180,130,40,0.3)]'
+            }`}
+          />
         </div>
 
-        <p className="text-xs sm:text-sm font-cinzel text-gold-400 tracking-[0.25em] uppercase mb-1">
+        <p
+          className={`text-xs sm:text-sm font-cinzel tracking-[0.25em] uppercase mb-1 ${
+            isDark ? 'text-gold-400' : 'text-gold-700'
+          }`}
+        >
           {t.familyBlessingsTitle}
         </p>
-        <h2 className="font-serif text-2xl sm:text-4xl font-bold text-ivory-50 mb-3">
+        <h2
+          className={`font-serif text-2xl sm:text-4xl font-bold mb-3 ${
+            isDark ? 'text-ivory-50' : 'text-[#4A0E17]'
+          }`}
+        >
           {t.familyBlessingsSubtitle}
         </h2>
 
         <GoldFiligreeDivider className="max-w-xs mx-auto my-4" />
 
         {/* Auspicious Shloka */}
-        <div className="max-w-xl mx-auto my-4 p-4 rounded-2xl bg-maroon-950/70 border border-gold-500/20">
-          <p className="text-gold-200 font-tamil text-sm sm:text-base leading-relaxed italic">
+        <div
+          className={`max-w-xl mx-auto my-4 p-4 rounded-2xl border transition-colors ${
+            isDark
+              ? 'bg-maroon-950/70 border-gold-500/20'
+              : 'bg-[#FAF2DF] border-gold-400/50 shadow-inner'
+          }`}
+        >
+          <p
+            className={`font-tamil text-sm sm:text-base leading-relaxed italic ${
+              isDark ? 'text-gold-200' : 'text-[#6B1124]'
+            }`}
+          >
             "{t.sacredShloka}"
           </p>
-          <p className="text-ivory-300/70 font-serif text-xs mt-2 italic">
+          <p
+            className={`font-serif text-xs mt-2 italic ${
+              isDark ? 'text-ivory-300/70' : 'text-[#6B4E32]'
+            }`}
+          >
             {t.sacredShlokaMeaning}
           </p>
         </div>
 
         {/* Heartfelt family message */}
-        <p className="text-sm sm:text-base text-ivory-200/90 font-cormorant leading-relaxed max-w-2xl mx-auto my-6">
+        <p
+          className={`text-sm sm:text-base font-cormorant leading-relaxed max-w-2xl mx-auto my-6 ${
+            isDark ? 'text-ivory-200/90' : 'text-[#472E33]'
+          }`}
+        >
           {t.familyBlessingText}
         </p>
 
         {/* Family Names */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-lg mx-auto py-4 border-y border-gold-500/20 my-6">
+        <div
+          className={`grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-lg mx-auto py-4 border-y my-6 ${
+            isDark ? 'border-gold-500/20' : 'border-gold-500/30'
+          }`}
+        >
           <div className="text-center sm:text-right pr-0 sm:pr-4">
-            <p className="text-xs font-cinzel text-gold-300 uppercase font-semibold">Bride's Family</p>
-            <p className="font-serif text-base text-ivory-100 font-bold mt-1">Sri. R. Krishnan</p>
-            <p className="font-serif text-sm text-ivory-300">& Smt. Geetha Krishnan</p>
+            <p
+              className={`text-xs font-cinzel uppercase font-semibold ${
+                isDark ? 'text-gold-300' : 'text-gold-800'
+              }`}
+            >
+              Bride's Family
+            </p>
+            <p className={`font-serif text-base font-bold mt-1 ${isDark ? 'text-ivory-100' : 'text-[#4A0E17]'}`}>
+              Sri. R. Krishnan
+            </p>
+            <p className={`font-serif text-sm ${isDark ? 'text-ivory-300' : 'text-[#6B4E32]'}`}>
+              &amp; Smt. Geetha Krishnan
+            </p>
           </div>
 
-          <div className="text-center sm:text-left pl-0 sm:pl-4 border-t sm:border-t-0 sm:border-l border-gold-500/20 pt-4 sm:pt-0">
-            <p className="text-xs font-cinzel text-gold-300 uppercase font-semibold">Groom's Family</p>
-            <p className="font-serif text-base text-ivory-100 font-bold mt-1">Sri. S. Mudaliar</p>
-            <p className="font-serif text-sm text-ivory-300">& Smt. Lakshmi Mudaliar</p>
+          <div
+            className={`text-center sm:text-left pl-0 sm:pl-4 border-t sm:border-t-0 sm:border-l pt-4 sm:pt-0 ${
+              isDark ? 'border-gold-500/20' : 'border-gold-500/30'
+            }`}
+          >
+            <p
+              className={`text-xs font-cinzel uppercase font-semibold ${
+                isDark ? 'text-gold-300' : 'text-gold-800'
+              }`}
+            >
+              Groom's Family
+            </p>
+            <p className={`font-serif text-base font-bold mt-1 ${isDark ? 'text-ivory-100' : 'text-[#4A0E17]'}`}>
+              Sri. S. Mudaliar
+            </p>
+            <p className={`font-serif text-sm ${isDark ? 'text-ivory-300' : 'text-[#6B4E32]'}`}>
+              &amp; Smt. Lakshmi Mudaliar
+            </p>
           </div>
         </div>
 
         {/* WhatsApp Sharing & Link Copy Buttons */}
         <div className="pt-2">
-          <p className="text-xs font-cinzel tracking-widest text-gold-300/90 uppercase mb-4">
+          <p
+            className={`text-xs font-cinzel tracking-widest uppercase mb-4 ${
+              isDark ? 'text-gold-300/90' : 'text-gold-800'
+            }`}
+          >
             {t.shareInvitationTitle}
           </p>
 
@@ -136,9 +218,13 @@ export const FamilyBlessings: React.FC<FamilyBlessingsProps> = ({ currentLang })
             {/* Native Share or Copy Link */}
             <button
               onClick={handleNativeShare}
-              className="inline-flex items-center space-x-2 py-3 px-5 rounded-full border border-gold-400/70 bg-maroon-900/80 text-gold-200 hover:text-gold-100 hover:bg-gold-500/20 font-serif text-xs sm:text-sm tracking-wider uppercase transition-all cursor-pointer"
+              className={`inline-flex items-center space-x-2 py-3 px-5 rounded-full border font-serif text-xs sm:text-sm tracking-wider uppercase transition-all cursor-pointer ${
+                isDark
+                  ? 'border-gold-400/70 bg-maroon-900/80 text-gold-200 hover:text-gold-100 hover:bg-gold-500/20'
+                  : 'border-gold-500 bg-[#FFFDF8] text-[#5C0617] hover:bg-[#FDF6E5] shadow-sm font-semibold'
+              }`}
             >
-              {copied ? <Check className="w-4 h-4 text-green-400" /> : <Copy className="w-4 h-4" />}
+              {copied ? <Check className="w-4 h-4 text-green-500" /> : <Copy className="w-4 h-4" />}
               <span>{copied ? t.linkCopiedText : t.copyLinkBtn}</span>
             </button>
           </div>

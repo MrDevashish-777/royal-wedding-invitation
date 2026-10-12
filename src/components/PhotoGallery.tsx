@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { X, ChevronLeft, ChevronRight, Maximize2 } from 'lucide-react';
 import { SupportedLanguage, GalleryPhoto } from '../types/wedding';
 import { weddingData } from '../data/weddingData';
+import { useTheme } from '../context/ThemeContext';
 import { GoldFiligreeDivider } from './Motifs';
 
 interface PhotoGalleryProps {
@@ -12,6 +13,7 @@ export const PhotoGallery: React.FC<PhotoGalleryProps> = ({ currentLang }) => {
   const [selectedPhotoIndex, setSelectedPhotoIndex] = useState<number | null>(null);
   const [filter, setFilter] = useState<string>('all');
   const t = weddingData.translations[currentLang];
+  const { isDark } = useTheme();
 
   const photos: GalleryPhoto[] = weddingData.gallery;
   const filteredPhotos = filter === 'all' ? photos : photos.filter((p) => p.category === filter);
@@ -49,13 +51,23 @@ export const PhotoGallery: React.FC<PhotoGalleryProps> = ({ currentLang }) => {
   }, [selectedPhotoIndex, closeLightbox, showNext, showPrev]);
 
   return (
-    <section id="gallery" className="relative py-20 px-4 max-w-6xl mx-auto">
+    <section id="gallery" className="relative py-20 px-4 max-w-6xl mx-auto transition-colors duration-500">
       {/* Section Header */}
       <div className="text-center mb-10">
-        <p className="text-xs sm:text-sm font-cinzel text-gold-400 tracking-[0.25em] uppercase mb-1">
+        <p
+          className={`text-xs sm:text-sm font-cinzel tracking-[0.25em] uppercase mb-1 ${
+            isDark ? 'text-gold-400' : 'text-gold-700'
+          }`}
+        >
           {t.galleryTitle}
         </p>
-        <h2 className="font-serif text-3xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold-100 via-gold-300 to-gold-400 drop-shadow-md">
+        <h2
+          className={`font-serif text-3xl sm:text-5xl font-bold tracking-tight drop-shadow-md text-transparent bg-clip-text ${
+            isDark
+              ? 'bg-gradient-to-r from-gold-100 via-gold-300 to-gold-400'
+              : 'bg-gradient-to-r from-[#660C1E] via-[#8C162E] to-[#660C1E]'
+          }`}
+        >
           {t.gallerySubtitle}
         </h2>
         <GoldFiligreeDivider className="max-w-xs mx-auto my-4" />
@@ -72,10 +84,12 @@ export const PhotoGallery: React.FC<PhotoGalleryProps> = ({ currentLang }) => {
           <button
             key={tab.id}
             onClick={() => setFilter(tab.id)}
-            className={`px-4 py-1.5 rounded-full text-xs font-serif transition-all duration-300 ${
+            className={`px-4 py-1.5 rounded-full text-xs font-serif transition-all duration-300 cursor-pointer ${
               filter === tab.id
                 ? 'bg-gradient-to-r from-gold-500 to-gold-400 text-maroon-950 font-bold shadow-md'
-                : 'bg-maroon-950/60 text-ivory-200/80 hover:text-gold-200 hover:bg-gold-500/10 border border-gold-500/20'
+                : isDark
+                ? 'bg-maroon-950/60 text-ivory-200/80 hover:text-gold-200 hover:bg-gold-500/10 border border-gold-500/20'
+                : 'bg-[#FFFDF8] text-[#5C232C] hover:text-gold-700 hover:bg-[#FDF6E5] border border-gold-400/50 shadow-sm font-medium'
             }`}
           >
             {tab.label}
@@ -89,7 +103,11 @@ export const PhotoGallery: React.FC<PhotoGalleryProps> = ({ currentLang }) => {
           <div
             key={photo.id}
             onClick={() => openLightbox(index)}
-            className="group relative h-80 rounded-2xl overflow-hidden border border-gold-400/40 bg-maroon-950/60 shadow-lg cursor-pointer transform hover:-translate-y-1 transition-all duration-500"
+            className={`group relative h-80 rounded-2xl overflow-hidden border shadow-lg cursor-pointer transform hover:-translate-y-1 transition-all duration-500 ${
+              isDark
+                ? 'border-gold-400/40 bg-maroon-950/60'
+                : 'border-gold-400/70 bg-[#FFFDF8] shadow-md'
+            }`}
           >
             <img
               src={photo.url}
@@ -97,20 +115,20 @@ export const PhotoGallery: React.FC<PhotoGalleryProps> = ({ currentLang }) => {
               className="w-full h-full object-cover filter brightness-95 group-hover:scale-110 group-hover:brightness-105 transition-all duration-700"
               loading="lazy"
             />
-            {/* Dark Gold Vignette overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-maroon-950 via-maroon-950/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
+            {/* Dark Gold Vignette overlay for text readability */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent opacity-70 group-hover:opacity-85 transition-opacity" />
 
             {/* Bottom Caption and Zoom Icon */}
-            <div className="absolute inset-x-0 bottom-0 p-4 flex items-end justify-between">
+            <div className="absolute inset-x-0 bottom-0 p-4 flex items-end justify-between z-10">
               <div>
                 <p className="text-ivory-50 font-serif text-base font-semibold drop-shadow-md">
                   {photo.title[currentLang]}
                 </p>
-                <p className="text-gold-300 text-xs font-cinzel tracking-wider uppercase">
+                <p className="text-gold-300 text-xs font-cinzel tracking-wider uppercase drop-shadow-sm">
                   {weddingData.couple.bride.name[currentLang]} & {weddingData.couple.groom.name[currentLang]}
                 </p>
               </div>
-              <div className="w-8 h-8 rounded-full bg-gold-400/20 border border-gold-300/40 flex items-center justify-center text-gold-200 opacity-0 group-hover:opacity-100 transition-opacity">
+              <div className="w-8 h-8 rounded-full bg-gold-400/30 border border-gold-300/50 flex items-center justify-center text-gold-200 opacity-0 group-hover:opacity-100 transition-opacity">
                 <Maximize2 className="w-4 h-4" />
               </div>
             </div>

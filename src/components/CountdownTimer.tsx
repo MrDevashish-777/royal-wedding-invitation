@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { SupportedLanguage } from '../types/wedding';
 import { weddingData } from '../data/weddingData';
+import { useTheme } from '../context/ThemeContext';
 import { GoldFiligreeDivider } from './Motifs';
 
 interface CountdownTimerProps {
@@ -17,6 +18,7 @@ interface TimeRemaining {
 
 export const CountdownTimer: React.FC<CountdownTimerProps> = ({ currentLang }) => {
   const t = weddingData.translations[currentLang];
+  const { isDark } = useTheme();
   const [timeRemaining, setTimeRemaining] = useState<TimeRemaining>({
     days: 0,
     hours: 0,
@@ -73,24 +75,46 @@ export const CountdownTimer: React.FC<CountdownTimerProps> = ({ currentLang }) =
 
   return (
     <div className="w-full max-w-xl mx-auto my-8 px-4 text-center">
-      <h3 className="font-serif text-lg sm:text-2xl text-gold-300 font-semibold tracking-wide mb-1">
+      <h3
+        className={`font-serif text-lg sm:text-2xl font-semibold tracking-wide mb-1 ${
+          isDark ? 'text-gold-300' : 'text-[#5C0617]'
+        }`}
+      >
         {timeRemaining.isCompleted ? t.countdownCompleted : t.countdownTitle}
       </h3>
-      <p className="text-xs sm:text-sm text-ivory-300/70 font-cormorant italic mb-5">
+      <p
+        className={`text-xs sm:text-sm font-cormorant italic mb-5 ${
+          isDark ? 'text-ivory-300/70' : 'text-[#6B4E32]'
+        }`}
+      >
         {weddingData.muhurthamTimeFormatted[currentLang]}
       </p>
 
-      {/* 4 Gold Cards for Countdown */}
+      {/* 4 Cards for Countdown */}
       <div className="grid grid-cols-4 gap-2 sm:gap-4">
         {timeUnits.map((unit, idx) => (
           <div
             key={idx}
-            className="flex flex-col items-center justify-center p-3 sm:p-5 rounded-2xl border border-gold-400/40 bg-gradient-to-b from-[#35070E]/80 via-[#220409]/90 to-[#150205]/95 shadow-[0_8px_20px_rgba(0,0,0,0.6)] backdrop-blur-sm"
+            className={`flex flex-col items-center justify-center p-3 sm:p-5 rounded-2xl border backdrop-blur-sm transition-all duration-300 ${
+              isDark
+                ? 'border-gold-400/40 bg-gradient-to-b from-[#35070E]/80 via-[#220409]/90 to-[#150205]/95 shadow-[0_8px_20px_rgba(0,0,0,0.6)]'
+                : 'border-gold-400/60 bg-gradient-to-b from-[#FFFFFF] via-[#FFFDF9] to-[#FDF8EE] shadow-[0_8px_25px_rgba(170,120,30,0.12)]'
+            }`}
           >
-            <span className="font-serif text-2xl sm:text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-gold-100 via-gold-300 to-gold-400 drop-shadow-sm tabular-nums">
+            <span
+              className={`font-serif text-2xl sm:text-4xl md:text-5xl font-bold drop-shadow-sm tabular-nums text-transparent bg-clip-text ${
+                isDark
+                  ? 'bg-gradient-to-b from-gold-100 via-gold-300 to-gold-400'
+                  : 'bg-gradient-to-b from-[#660C1E] via-[#8C162E] to-[#AA223E]'
+              }`}
+            >
               {unit.value}
             </span>
-            <span className="text-[10px] sm:text-xs font-cinzel text-gold-200/90 tracking-widest uppercase mt-1">
+            <span
+              className={`text-[10px] sm:text-xs font-cinzel tracking-widest uppercase mt-1 ${
+                isDark ? 'text-gold-200/90' : 'text-gold-800 font-bold'
+              }`}
+            >
               {unit.label}
             </span>
           </div>

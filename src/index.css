@@ -5,10 +5,10 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    color-scheme: dark;
+    transition: background-color 0.4s ease, color 0.4s ease;
   }
 
-  /* Royal Gold Scrollbar */
+  /* Royal Gold Scrollbar - Dark Mode */
   ::-webkit-scrollbar {
     width: 8px;
   }
@@ -23,6 +23,24 @@
   ::-webkit-scrollbar-thumb:hover {
     background: #d4af37;
   }
+
+  /* Light Theme Scrollbar */
+  .light-theme ::-webkit-scrollbar-track {
+    background: #f7f1e4;
+  }
+  .light-theme ::-webkit-scrollbar-thumb {
+    background: #c59128;
+    border-radius: 4px;
+    border: 1px solid #f3e5ab;
+  }
+  .light-theme ::-webkit-scrollbar-thumb:hover {
+    background: #aa751f;
+  }
+}
+
+/* Light Theme Global Overrides for Crisp Luxury Wedding Card Styling */
+.light-theme {
+  color-scheme: light;
 }
 
 /* Custom Utilities & Keyframe Enhancements */

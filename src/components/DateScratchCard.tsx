@@ -3,6 +3,7 @@ import confetti from 'canvas-confetti';
 import { Sparkles, CheckCircle2 } from 'lucide-react';
 import { SupportedLanguage } from '../types/wedding';
 import { weddingData } from '../data/weddingData';
+import { useTheme } from '../context/ThemeContext';
 
 interface DateScratchCardProps {
   currentLang: SupportedLanguage;
@@ -14,6 +15,7 @@ export const DateScratchCard: React.FC<DateScratchCardProps> = ({ currentLang })
   const [isRevealed, setIsRevealed] = useState(false);
   const isDrawingRef = useRef(false);
   const t = weddingData.translations[currentLang];
+  const { isDark } = useTheme();
 
   const initCanvas = useCallback(() => {
     const canvas = canvasRef.current;
@@ -147,10 +149,18 @@ export const DateScratchCard: React.FC<DateScratchCardProps> = ({ currentLang })
   return (
     <div className="flex flex-col items-center max-w-lg mx-auto w-full px-4">
       <div className="text-center mb-3">
-        <h3 className="text-xl sm:text-2xl font-serif text-gold-200 font-bold tracking-wide">
+        <h3
+          className={`text-xl sm:text-2xl font-serif font-bold tracking-wide ${
+            isDark ? 'text-gold-200' : 'text-[#5C0617]'
+          }`}
+        >
           {t.scratchCardTitle}
         </h3>
-        <p className="text-xs sm:text-sm text-ivory-300/80 font-cormorant italic mt-0.5">
+        <p
+          className={`text-xs sm:text-sm font-cormorant italic mt-0.5 ${
+            isDark ? 'text-ivory-300/80' : 'text-[#6B4E32]'
+          }`}
+        >
           {t.scratchCardInstruction}
         </p>
       </div>
@@ -158,38 +168,78 @@ export const DateScratchCard: React.FC<DateScratchCardProps> = ({ currentLang })
       {/* Card Outer Container */}
       <div
         ref={containerRef}
-        className="relative w-full max-w-sm h-56 sm:h-64 rounded-3xl border-2 border-gold-400/80 shadow-[0_15px_45px_rgba(0,0,0,0.7)] overflow-hidden bg-gradient-to-br from-[#2E050D] via-[#1E0308] to-[#120104] select-none"
+        className={`relative w-full max-w-sm h-56 sm:h-64 rounded-3xl border-2 overflow-hidden select-none transition-all duration-500 ${
+          isDark
+            ? 'border-gold-400/80 shadow-[0_15px_45px_rgba(0,0,0,0.7)] bg-gradient-to-br from-[#2E050D] via-[#1E0308] to-[#120104]'
+            : 'border-gold-500 shadow-[0_15px_45px_rgba(170,120,30,0.18)] bg-gradient-to-br from-[#FFFFFF] via-[#FFFDF8] to-[#FDF4DF]'
+        }`}
       >
         {/* Hidden Content Beneath Foil */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center text-ivory-100">
-          <span className="text-gold-400 text-xs sm:text-sm font-cinzel tracking-[0.25em] uppercase font-semibold">
+        <div
+          className={`absolute inset-0 flex flex-col items-center justify-center p-6 text-center ${
+            isDark ? 'text-ivory-100' : 'text-[#4A0E17]'
+          }`}
+        >
+          <span
+            className={`text-xs sm:text-sm font-cinzel tracking-[0.25em] uppercase font-semibold ${
+              isDark ? 'text-gold-400' : 'text-gold-700'
+            }`}
+          >
             {currentLang === 'ta' ? 'வெள்ளிக்கிழமை' : currentLang === 'hi' ? 'शुक्रवार' : 'FRIDAY'}
           </span>
 
           <div className="flex items-center justify-center space-x-3 my-1">
-            <span className="font-serif text-6xl sm:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-gold-100 via-gold-300 to-gold-500 drop-shadow-[0_4px_12px_rgba(212,175,55,0.4)]">
+            <span
+              className={`font-serif text-6xl sm:text-7xl font-extrabold text-transparent bg-clip-text drop-shadow-[0_4px_12px_rgba(212,175,55,0.4)] ${
+                isDark
+                  ? 'bg-gradient-to-b from-gold-100 via-gold-300 to-gold-500'
+                  : 'bg-gradient-to-b from-[#660C1E] via-[#8C162E] to-[#AA223E]'
+              }`}
+            >
               27
             </span>
             <div className="flex flex-col text-left">
-              <span className="font-serif text-2xl sm:text-3xl font-semibold text-ivory-50 tracking-wide">
+              <span
+                className={`font-serif text-2xl sm:text-3xl font-semibold tracking-wide ${
+                  isDark ? 'text-ivory-50' : 'text-[#5C0617]'
+                }`}
+              >
                 {currentLang === 'ta' ? 'நவம்பர்' : currentLang === 'hi' ? 'नवंबर' : 'NOVEMBER'}
               </span>
-              <span className="font-cinzel text-sm sm:text-base text-gold-300/90 font-bold tracking-widest">
+              <span
+                className={`font-cinzel text-sm sm:text-base font-bold tracking-widest ${
+                  isDark ? 'text-gold-300/90' : 'text-gold-700'
+                }`}
+              >
                 2026
               </span>
             </div>
           </div>
 
-          <p className="text-xs sm:text-sm text-gold-200/90 font-serif font-medium mt-1">
+          <p
+            className={`text-xs sm:text-sm font-serif font-medium mt-1 ${
+              isDark ? 'text-gold-200/90' : 'text-[#660C1E]'
+            }`}
+          >
             {weddingData.muhurthamTimeFormatted[currentLang]}
           </p>
-          <p className="text-[11px] text-ivory-300/70 font-tamil mt-1">
+          <p
+            className={`text-[11px] font-tamil mt-1 ${
+              isDark ? 'text-ivory-300/70' : 'text-[#7A4B1A]'
+            }`}
+          >
             {weddingData.auspiciousTithi[currentLang]}
           </p>
 
           {isRevealed && (
-            <div className="flex items-center space-x-1.5 mt-2 text-xs font-serif text-gold-400 bg-gold-500/10 px-3 py-1 rounded-full border border-gold-400/30">
-              <Sparkles className="w-3.5 h-3.5 text-gold-300" />
+            <div
+              className={`flex items-center space-x-1.5 mt-2 text-xs font-serif px-3 py-1 rounded-full border ${
+                isDark
+                  ? 'text-gold-400 bg-gold-500/10 border-gold-400/30'
+                  : 'text-gold-800 bg-gold-500/20 border-gold-500/50'
+              }`}
+            >
+              <Sparkles className="w-3.5 h-3.5 text-gold-500" />
               <span>{t.scratchCardRevealed}</span>
             </div>
           )}
@@ -221,9 +271,13 @@ export const DateScratchCard: React.FC<DateScratchCardProps> = ({ currentLang })
       {!isRevealed && (
         <button
           onClick={celebrateReveal}
-          className="mt-3.5 px-4 py-1.5 rounded-full text-xs font-serif text-gold-300/80 hover:text-gold-100 border border-gold-400/30 hover:border-gold-300 bg-maroon-950/40 transition-all flex items-center space-x-1.5 cursor-pointer"
+          className={`mt-3.5 px-4 py-1.5 rounded-full text-xs font-serif border transition-all flex items-center space-x-1.5 cursor-pointer ${
+            isDark
+              ? 'text-gold-300/80 hover:text-gold-100 border-gold-400/30 hover:border-gold-300 bg-maroon-950/40'
+              : 'text-gold-800 hover:text-maroon-950 border-gold-500/50 hover:border-gold-600 bg-[#FFFDF8] shadow-sm font-semibold'
+          }`}
         >
-          <CheckCircle2 className="w-3.5 h-3.5 text-gold-400" />
+          <CheckCircle2 className="w-3.5 h-3.5 text-gold-500" />
           <span>{t.scratchFallbackBtn}</span>
         </button>
       )}
