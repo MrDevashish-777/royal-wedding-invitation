@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 import { useTheme } from '../context/ThemeContext';
-import { CherryBlossomBranch } from './Motifs';
 
 interface Petal {
   x: number;
@@ -126,22 +125,6 @@ export const FloatingCherryBlossoms: React.FC = () => {
     <div className="pointer-events-none fixed inset-0 z-20 overflow-hidden select-none">
       {/* Falling Cherry Blossom Canvas */}
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
-
-      {/* Top Left Delicate Cherry Blossom Branch */}
-      <div className="absolute -top-4 -left-4 sm:top-0 sm:left-0 opacity-80 sm:opacity-90 transition-opacity duration-700">
-        <CherryBlossomBranch
-          position="top-left"
-          className="w-40 h-40 sm:w-60 sm:h-60 md:w-72 md:h-72 drop-shadow-[0_4px_12px_rgba(244,114,182,0.15)]"
-        />
-      </div>
-
-      {/* Top Right Delicate Cherry Blossom Branch */}
-      <div className="absolute -top-4 -right-4 sm:top-0 sm:right-0 opacity-80 sm:opacity-90 transition-opacity duration-700">
-        <CherryBlossomBranch
-          position="top-right"
-          className="w-40 h-40 sm:w-60 sm:h-60 md:w-72 md:h-72 drop-shadow-[0_4px_12px_rgba(244,114,182,0.15)]"
-        />
-      </div>
     </div>
   );
 };
