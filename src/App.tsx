@@ -12,6 +12,7 @@ import { VenueSection } from './components/VenueSection';
 import { FamilyBlessings } from './components/FamilyBlessings';
 import { Footer } from './components/Footer';
 import { MusicPlayer } from './components/MusicPlayer';
+import { FloatingCherryBlossoms } from './components/FloatingCherryBlossoms';
 import { ThemeProvider, useTheme } from './context/ThemeContext';
 
 const AppContent: React.FC = () => {
@@ -22,7 +23,7 @@ const AppContent: React.FC = () => {
 
   return (
     <div
-      className={`min-h-screen font-serif transition-colors duration-500 ${
+      className={`min-h-screen font-serif transition-colors duration-500 relative ${
         isDark
           ? 'bg-[#2A040B] text-ivory-100 selection:bg-gold-500 selection:text-maroon-950'
           : 'bg-[#FAF6EE] text-[#3D252A] selection:bg-[#8A1528] selection:text-ivory-50'
@@ -40,6 +41,9 @@ const AppContent: React.FC = () => {
           hasOpened ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}
       >
+        {/* Floating Cherry Blossoms Ambient Background Layer */}
+        <FloatingCherryBlossoms />
+
         {/* Fixed Header with Navigation, Theme Toggle & Language Switcher */}
         <Navbar currentLang={currentLang} onLanguageChange={setCurrentLang} />
 

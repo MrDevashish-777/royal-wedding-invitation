@@ -2,7 +2,7 @@ import React from 'react';
 import { ArrowUp, Heart } from 'lucide-react';
 import { SupportedLanguage } from '../types/wedding';
 import { weddingData } from '../data/weddingData';
-import { VinayagarMotif } from './Motifs';
+import { VinayagarMotif, SouthIndianTempleGopuram, SouthIndianTempleSkyline, GoldFiligreeDivider, KuthuvilakkuLamp } from './Motifs';
 import { useTheme } from '../context/ThemeContext';
 
 interface FooterProps {
@@ -18,28 +18,83 @@ export const Footer: React.FC<FooterProps> = ({ currentLang }) => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const templeBlessingText = {
+    ta: '|| திருக்கோவில் அருள் ஆசியுடன் சுபமங்களம் ||',
+    hi: '|| पावन मंदिर एवं प्रभु कृपा से मंगलमय आशीर्वाद ||',
+    en: '|| With Divine Temple Blessings & Eternal Grace ||',
+  }[currentLang];
+
   return (
     <footer
-      className={`relative pt-16 pb-12 px-4 text-center overflow-hidden border-t transition-colors duration-500 ${
+      className={`relative pt-20 pb-12 px-4 text-center overflow-hidden border-t transition-colors duration-500 ${
         isDark
-          ? 'bg-[#170205] border-gold-500/30'
-          : 'bg-[#EFE5D5] border-gold-600/40 shadow-inner'
+          ? 'bg-[#150205] border-gold-500/30'
+          : 'bg-[#F5EDE0] border-gold-600/40 shadow-inner'
       }`}
     >
-      {/* Decorative Gold Glow in background */}
+      {/* Decorative Gold & Amber Glow in background */}
       <div
-        className={`absolute top-0 left-1/2 -translate-x-1/2 w-96 h-32 blur-3xl pointer-events-none ${
+        className={`absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-64 blur-3xl pointer-events-none ${
           isDark ? 'bg-gold-500/10' : 'bg-gold-500/20'
         }`}
       />
 
+      {/* Flanking Kuthuvilakku Brass Diya Lamps */}
+      <div className="absolute left-6 lg:left-24 top-24 pointer-events-none opacity-40 lg:opacity-75 hidden sm:block">
+        <KuthuvilakkuLamp
+          className={`w-10 h-28 lg:w-12 lg:h-36 ${
+            isDark ? 'text-gold-400 drop-shadow-[0_0_15px_rgba(212,175,55,0.6)]' : 'text-gold-600'
+          }`}
+        />
+      </div>
+      <div className="absolute right-6 lg:right-24 top-24 pointer-events-none opacity-40 lg:opacity-75 hidden sm:block">
+        <KuthuvilakkuLamp
+          className={`w-10 h-28 lg:w-12 lg:h-36 ${
+            isDark ? 'text-gold-400 drop-shadow-[0_0_15px_rgba(212,175,55,0.6)]' : 'text-gold-600'
+          }`}
+        />
+      </div>
+
       <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
         {/* Lord Vinayagar motif */}
         <VinayagarMotif
-          className={`w-10 h-10 mb-3 transition-colors ${
+          className={`w-10 h-10 mb-2 transition-colors ${
             isDark ? 'text-gold-400 opacity-80' : 'text-[#8A1528] opacity-90'
           }`}
         />
+
+        {/* South Indian Temple Blessing Invocation */}
+        <p
+          className={`text-xs sm:text-sm font-cinzel font-bold tracking-[0.25em] uppercase mb-4 ${
+            isDark ? 'text-gold-300' : 'text-[#8A1528]'
+          }`}
+        >
+          {templeBlessingText}
+        </p>
+
+        {/* MAJESTIC SOUTH INDIAN TEMPLE GOPURAM (ராஜகோபுரம்) */}
+        <div className="relative my-3 flex flex-col items-center group">
+          {/* Subtle golden halo behind the Gopuram */}
+          <div
+            className={`absolute -inset-4 rounded-full blur-2xl pointer-events-none ${
+              isDark ? 'bg-gold-500/20' : 'bg-gold-400/25'
+            }`}
+          />
+          <SouthIndianTempleGopuram
+            className={`relative w-44 h-56 sm:w-56 sm:h-72 transition-all duration-500 transform group-hover:scale-105 drop-shadow-md ${
+              isDark ? 'text-[#8A1528]' : 'text-[#660C1E]'
+            }`}
+          />
+          <p
+            className={`text-[11px] sm:text-xs font-cinzel tracking-widest uppercase mt-2 font-semibold ${
+              isDark ? 'text-gold-300/80' : 'text-[#8A1528]'
+            }`}
+          >
+            {weddingData.primaryVenue.name[currentLang]}
+          </p>
+        </div>
+
+        <GoldFiligreeDivider className="max-w-xs mx-auto my-4" />
 
         <p
           className={`font-script text-4xl sm:text-5xl my-1 ${
@@ -104,6 +159,15 @@ export const Footer: React.FC<FooterProps> = ({ currentLang }) => {
             }`}
           />
         </div>
+      </div>
+
+      {/* PANORAMIC SOUTH INDIAN TEMPLE SKYLINE BANNER (Bottom Backdrop) */}
+      <div className="absolute inset-x-0 bottom-0 pointer-events-none opacity-20 sm:opacity-30 overflow-hidden">
+        <SouthIndianTempleSkyline
+          className={`w-full h-24 sm:h-28 transition-colors ${
+            isDark ? 'text-gold-400' : 'text-[#8A1528]'
+          }`}
+        />
       </div>
     </footer>
   );

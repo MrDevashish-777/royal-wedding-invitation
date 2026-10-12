@@ -1,5 +1,4 @@
 import React from 'react';
-import { Heart, Music, Sparkles } from 'lucide-react';
 import { SupportedLanguage } from '../types/wedding';
 import { weddingData } from '../data/weddingData';
 import { useTheme } from '../context/ThemeContext';
@@ -38,7 +37,7 @@ export const CoupleStory: React.FC<CoupleStoryProps> = ({ currentLang }) => {
       </div>
 
       {/* Groom & Bride Cards - Groom First */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-4xl mx-auto mb-20">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-4xl mx-auto">
         {/* Groom Card */}
         <div
           className={`relative group p-6 sm:p-8 rounded-3xl border backdrop-blur-md text-center transition-all duration-300 ${
@@ -89,7 +88,7 @@ export const CoupleStory: React.FC<CoupleStoryProps> = ({ currentLang }) => {
             {groom.fullName[currentLang]}
           </h3>
           <p
-            className={`text-xs sm:text-sm font-serif italic mb-3 ${
+            className={`text-xs sm:text-sm font-serif italic mb-3 font-medium ${
               isDark ? 'text-gold-200/80' : 'text-[#7A4B1A]'
             }`}
           >
@@ -154,7 +153,7 @@ export const CoupleStory: React.FC<CoupleStoryProps> = ({ currentLang }) => {
             {bride.fullName[currentLang]}
           </h3>
           <p
-            className={`text-xs sm:text-sm font-serif italic mb-3 ${
+            className={`text-xs sm:text-sm font-serif italic mb-3 font-medium ${
               isDark ? 'text-gold-200/80' : 'text-[#7A4B1A]'
             }`}
           >
@@ -167,96 +166,6 @@ export const CoupleStory: React.FC<CoupleStoryProps> = ({ currentLang }) => {
           >
             "{bride.bio[currentLang]}"
           </p>
-        </div>
-      </div>
-
-      {/* Love Story Timeline */}
-      <div id="story" className="max-w-3xl mx-auto pt-6">
-        <div className="text-center mb-10">
-          <p
-            className={`text-xs sm:text-sm font-cinzel tracking-[0.25em] uppercase mb-1 ${
-              isDark ? 'text-gold-400' : 'text-gold-700'
-            }`}
-          >
-            {t.ourStoryTitle}
-          </p>
-          <h3
-            className={`font-serif text-2xl sm:text-4xl font-bold ${
-              isDark ? 'text-ivory-100' : 'text-[#4A0E17]'
-            }`}
-          >
-            {t.ourStorySubtitle}
-          </h3>
-          <GoldFiligreeDivider className="max-w-xs mx-auto my-3" />
-        </div>
-
-        <div
-          className={`relative border-l-2 ml-4 sm:ml-32 space-y-10 py-4 ${
-            isDark ? 'border-gold-500/40' : 'border-gold-500/60'
-          }`}
-        >
-          {weddingData.story.map((item, idx) => (
-            <div key={idx} className="relative pl-6 sm:pl-8 group">
-              {/* Year badge on the left for desktop */}
-              <div className="sm:absolute sm:-left-32 sm:top-0 sm:w-24 sm:text-right hidden sm:block">
-                <span
-                  className={`font-cinzel text-base font-bold ${
-                    isDark ? 'text-gold-300' : 'text-gold-800'
-                  }`}
-                >
-                  {item.year}
-                </span>
-              </div>
-
-              {/* Glowing Node on Timeline */}
-              <div
-                className={`absolute -left-[17px] top-1.5 w-8 h-8 rounded-full border-2 flex items-center justify-center shadow-md group-hover:scale-110 transition-transform ${
-                  isDark
-                    ? 'border-gold-400 bg-maroon-900 text-gold-300'
-                    : 'border-gold-500 bg-[#FFFDF8] text-gold-700 shadow-sm'
-                }`}
-              >
-                {idx === 0 ? (
-                  <Music className="w-3.5 h-3.5" />
-                ) : idx === 1 ? (
-                  <Heart className="w-3.5 h-3.5" />
-                ) : (
-                  <Sparkles className="w-3.5 h-3.5" />
-                )}
-              </div>
-
-              {/* Content Box */}
-              <div
-                className={`p-5 rounded-2xl border backdrop-blur-sm shadow-md transition-all ${
-                  isDark
-                    ? 'border-gold-400/30 bg-maroon-950/70 group-hover:border-gold-300'
-                    : 'border-gold-400/60 bg-[#FFFFFF]/95 group-hover:border-gold-500 shadow-sm'
-                }`}
-              >
-                <span
-                  className={`sm:hidden inline-block text-xs font-cinzel font-bold mb-1 ${
-                    isDark ? 'text-gold-400' : 'text-gold-800'
-                  }`}
-                >
-                  {item.year}
-                </span>
-                <h4
-                  className={`font-serif text-lg sm:text-xl font-bold mb-1.5 ${
-                    isDark ? 'text-gold-200' : 'text-[#5C0617]'
-                  }`}
-                >
-                  {item.title[currentLang]}
-                </h4>
-                <p
-                  className={`text-xs sm:text-sm font-cormorant leading-relaxed ${
-                    isDark ? 'text-ivory-200/85' : 'text-[#472E33]'
-                  }`}
-                >
-                  {item.description[currentLang]}
-                </p>
-              </div>
-            </div>
-          ))}
         </div>
       </div>
     </section>

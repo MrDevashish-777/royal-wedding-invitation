@@ -3,7 +3,7 @@ import { Calendar, MapPin, ChevronDown } from 'lucide-react';
 import { SupportedLanguage } from '../types/wedding';
 import { weddingData } from '../data/weddingData';
 import { useTheme } from '../context/ThemeContext';
-import { VinayagarMotif, GoldFiligreeDivider, CornerOrnament, KuthuvilakkuLamp } from './Motifs';
+import { VinayagarMotif, GoldFiligreeDivider, CornerOrnament, KuthuvilakkuLamp, CherryBlossomBranch } from './Motifs';
 
 interface HeroSectionProps {
   currentLang: SupportedLanguage;
@@ -50,6 +50,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLang }) => {
             : 'bg-[radial-gradient(ellipse_at_center,transparent_0%,#FAF6EE_80%)]'
         }`}
       />
+
+      {/* Romantic Cherry Blossom Corner Branches */}
+      <div className="absolute top-0 left-0 pointer-events-none opacity-85 lg:opacity-95 z-10 hidden sm:block">
+        <CherryBlossomBranch position="top-left" className="w-44 h-44 lg:w-60 lg:h-60" />
+      </div>
+      <div className="absolute top-0 right-0 pointer-events-none opacity-85 lg:opacity-95 z-10 hidden sm:block">
+        <CherryBlossomBranch position="top-right" className="w-44 h-44 lg:w-60 lg:h-60" />
+      </div>
 
       {/* Flanking Kuthuvilakku Brass Diya Lamps */}
       <div className="absolute left-4 lg:left-12 top-1/2 -translate-y-1/2 pointer-events-none opacity-40 lg:opacity-75 hidden md:block">
