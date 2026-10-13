@@ -238,54 +238,6 @@ export const weddingData: WeddingData = {
       },
       motif: 'thali',
     },
-    {
-      id: 'kalyana-virundhu',
-      name: {
-        en: 'Kalyana Virundhu (Celebratory Feast)',
-        ta: 'கல்யாண விருந்து',
-        hi: 'कल्याण विरुन्दु (पारंपरिक विवाह भोज)',
-      },
-      subtitle: {
-        en: 'Traditional Banana Leaf Feast',
-        ta: 'பாரம்பரிய தலைவாழை இலை விருந்து',
-        hi: 'पारंपरिक दक्षिण भारतीय केले के पत्ते पर महाभोज',
-      },
-      date: '2026-11-30',
-      dayName: {
-        en: 'Monday, 30 November 2026',
-        ta: 'திங்கட்கிழமை, 30 நவம்பர் 2026',
-        hi: 'सोमवार, 30 नवंबर 2026',
-      },
-      time: {
-        en: '8:00 AM onwards',
-        ta: 'காலை 8:00 மணி முதல்',
-        hi: 'प्रातः 8:00 बजे से',
-      },
-      calendarStart: '20261130T080000',
-      calendarEnd: '20261130T140000',
-      venueName: {
-        en: 'Thaayaar Abboy Thirumana Mahal (Dining Hall)',
-        ta: 'தாயார் அப்பாய் திருமண மஹால் (உணவு கூடம்)',
-        hi: 'थायार अब्बॉय तिरुमना महल (भोजन कक्ष)',
-      },
-      venueAddress: {
-        en: 'Cheyyar, Tiruvannamalai District, Tamil Nadu',
-        ta: 'செய்யாறு, திருவண்ணாமலை மாவட்டம், தமிழ்நாடு',
-        hi: 'चेय्यार, तिरुवन्नामलाई जिला, तमिलनाडु',
-      },
-      mapUrl: 'https://www.google.com/maps/search/?api=1&query=Thaayaar+Abboy+Thirumana+Mahal+Cheyyar+Tamil+Nadu',
-      dressCode: {
-        en: 'Traditional Festive Attire',
-        ta: 'பாரம்பரிய உடைகள்',
-        hi: 'पारंपरिक परिधान',
-      },
-      description: {
-        en: 'Enjoy a sumptuous South Indian celebratory feast served on traditional banana leaves with authentic delicacies.',
-        ta: 'அனைத்து அறுசுவை பதார்த்தங்களுடன் கூடிய பாரம்பரிய தலைவாழை இலை விருந்து.',
-        hi: 'पारंपरिक दक्षिण भारतीय व्यंजनों का आनंद लेते हुए नवदंपति को शुभकामनाएं देने का अवसर।',
-      },
-      motif: 'feast',
-    },
   ],
 
   // Gallery Photos

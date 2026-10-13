@@ -49,7 +49,7 @@ export const CeremoniesList: React.FC<CeremoniesListProps> = ({ currentLang }) =
           return (
             <article
               key={event.id}
-              className={`relative rounded-3xl p-6 sm:p-8 border transition-all duration-300 flex flex-col justify-between ${
+              className={`relative rounded-3xl p-6 sm:p-8 pt-10 border transition-all duration-300 flex flex-col justify-between ${
                 isDark
                   ? isMuhurtham
                     ? 'border-gold-300 bg-gradient-to-b from-[#4A0E17]/95 via-[#2E050D]/95 to-[#1E0308]/98 ring-2 ring-gold-400/30 shadow-[0_15px_40px_rgba(0,0,0,0.7)]'
@@ -59,6 +59,23 @@ export const CeremoniesList: React.FC<CeremoniesListProps> = ({ currentLang }) =
                   : 'border-gold-400/60 bg-gradient-to-b from-[#FFFFFF]/98 via-[#FFFDF8]/98 to-[#FDF8ED]/98 shadow-[0_15px_40px_rgba(170,120,30,0.12)]'
               }`}
             >
+              {/* Metallic Calendar Spiral Rings at Top */}
+              <div className="absolute -top-4 left-0 right-0 flex justify-center space-x-12 pointer-events-none">
+                <span
+                  className={`w-4 h-9 rounded-md border shadow-md transform -rotate-3 ${
+                    isDark
+                      ? 'bg-gradient-to-r from-gray-400 via-gray-200 to-gray-500 border-gray-600'
+                      : 'bg-gradient-to-r from-amber-400 via-yellow-100 to-amber-600 border-amber-600/70'
+                  }`}
+                />
+                <span
+                  className={`w-4 h-9 rounded-md border shadow-md transform rotate-3 ${
+                    isDark
+                      ? 'bg-gradient-to-r from-gray-400 via-gray-200 to-gray-500 border-gray-600'
+                      : 'bg-gradient-to-r from-amber-400 via-yellow-100 to-amber-600 border-amber-600/70'
+                  }`}
+                />
+              </div>
 
               {/* Card Top: Date & Ceremony Badge */}
               <div>
