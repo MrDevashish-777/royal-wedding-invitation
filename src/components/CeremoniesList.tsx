@@ -1,361 +1,229 @@
 import React from 'react';
-import { Navigation, CalendarPlus, Clock, Sparkles, Utensils, Car, Phone } from 'lucide-react';
-import { SupportedLanguage } from '../types/wedding';
+import { Clock, MapPin, Navigation, CalendarPlus, Sparkles } from 'lucide-react';
+import { SupportedLanguage, CeremonyEvent } from '../types/wedding';
 import { weddingData } from '../data/weddingData';
 import { useTheme } from '../context/ThemeContext';
 import { downloadIcsFile } from '../utils/calendar';
-import { GoldFiligreeDivider, ThaliMotif } from './Motifs';
+import { GoldFiligreeDivider, ThaliMotif, KuthuvilakkuLamp } from './Motifs';
 
 interface CeremoniesListProps {
   currentLang: SupportedLanguage;
 }
 
 export const CeremoniesList: React.FC<CeremoniesListProps> = ({ currentLang }) => {
+  const t = weddingData.translations[currentLang];
   const { isDark } = useTheme();
-  const { primaryVenue, contactNumber } = weddingData;
   const coupleNames = `${weddingData.couple.groom.name[currentLang]} & ${weddingData.couple.bride.name[currentLang]}`;
 
-  const headerText = {
-    en: {
-      eyebrow: 'THE WEDDING',
-      title: 'Join us as the celebrations begin and two hearts become one',
-      location: 'Cheyyar, Tamil Nadu',
-      venueTag: 'WEDDING VENUE',
-      receptionName: 'Reception',
-      receptionTime: '6:00 PM onwards',
-      muhurthamName: 'Subha Muhurtham',
-      muhurthamTime: '6:00 AM - 7:30 AM',
-      muhurthamTag: 'Auspicious Muhurtham',
-      feastName: 'Kalyana Virundhu',
-      feastTime: '8:00 AM onwards',
-      feastSub: 'Traditional Banana Leaf Feast',
-      getDirections: 'Get Directions',
-      addToCalendar: 'Add to Calendar',
-      valet: 'Valet Parking Available',
-      helpdesk: 'Helpdesk',
-    },
-    ta: {
-      eyebrow: 'சுப திருமண வைபவங்கள்',
-      title: 'மங்கல இசை முழங்க இரு உள்ளங்கள் இணையும் இனிய மணவிழா',
-      location: 'செய்யாறு, தமிழ்நாடு',
-      venueTag: 'திருமண மண்டபம்',
-      receptionName: 'வரவேற்பு நன்னாள்',
-      receptionTime: 'மாலை 6:00 மணி முதல்',
-      muhurthamName: 'சுப முகூர்த்தம்',
-      muhurthamTime: 'காலை 6:00 - 7:30 மணி',
-      muhurthamTag: 'மாங்கல்ய தாரணம்',
-      feastName: 'கல்யாண விருந்து',
-      feastTime: 'காலை 8:00 மணி முதல்',
-      feastSub: 'தலைவாழை இலை விருந்து',
-      getDirections: 'வழித்தடம் அறிய',
-      addToCalendar: 'நாட்காட்டியில் சேர்க்க',
-      valet: 'வாகன நிறுத்துமிடம் வசதி உண்டு',
-      helpdesk: 'தகவல் உதவி',
-    },
-    hi: {
-      eyebrow: 'शुभ विवाह कार्यक्रम',
-      title: 'संस्कृति एवं मंगल भाव से परिपूर्ण पावन वैवाहिक अनुष्ठान',
-      location: 'चेय्यार, तमिलनाडु',
-      venueTag: 'विवाह स्थल',
-      receptionName: 'शुभ स्वागत समारोह (रिसेप्शन)',
-      receptionTime: 'सायं 6:00 बजे से',
-      muhurthamName: 'शुभ लग्न मुहूर्त',
-      muhurthamTime: 'प्रातः 6:00 - 7:30 बजे',
-      muhurthamTag: 'मंगलसूत्र धारण',
-      feastName: 'कल्याण विरुन्दु (महाभोज)',
-      feastTime: 'प्रातः 8:00 बजे से',
-      feastSub: 'पारंपरिक केले के पत्ते पर भोज',
-      getDirections: 'दिशा-निर्देश देखें',
-      addToCalendar: 'कैलेंडर में जोड़ें',
-      valet: 'पार्किंग सुविधा उपलब्ध',
-      helpdesk: 'सहायता',
-    },
-  }[currentLang];
-
   return (
-    <section id="ceremonies" className="relative py-14 px-4 max-w-4xl mx-auto transition-colors duration-500">
-      {/* Concise Section Header */}
-      <div className="text-center mb-8 max-w-xl mx-auto">
+    <section id="ceremonies" className="relative py-20 px-4 max-w-6xl mx-auto transition-colors duration-500">
+      {/* Section Header */}
+      <div className="text-center mb-16">
         <p
-          className={`text-xs sm:text-sm font-cinzel tracking-[0.25em] uppercase font-bold mb-1.5 ${
+          className={`text-xs sm:text-sm font-cinzel tracking-[0.25em] uppercase mb-1 ${
             isDark ? 'text-gold-400' : 'text-gold-700'
           }`}
         >
-          {headerText.eyebrow}
+          {t.ceremoniesTitle}
         </p>
         <h2
-          className={`font-serif text-2xl sm:text-4xl font-bold tracking-tight drop-shadow-sm text-transparent bg-clip-text mb-2 ${
+          className={`font-serif text-3xl sm:text-5xl font-bold tracking-tight drop-shadow-md text-transparent bg-clip-text ${
             isDark
               ? 'bg-gradient-to-r from-gold-100 via-gold-300 to-gold-400'
               : 'bg-gradient-to-r from-[#660C1E] via-[#8C162E] to-[#660C1E]'
           }`}
         >
-          {headerText.title}
+          {t.ceremoniesSubtitle}
         </h2>
-
-        {/* Location Badge */}
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-cinzel font-semibold tracking-wider uppercase border my-2 backdrop-blur-sm transition-colors border-gold-400/40 bg-gold-500/10 text-gold-700 dark:text-gold-300">
-          <span>📍 {headerText.location}</span>
-        </div>
-
-        <GoldFiligreeDivider className="max-w-xs mx-auto my-3" />
+        <GoldFiligreeDivider className="max-w-xs mx-auto my-4" />
       </div>
 
-      {/* CONCISE EVENT SCHEDULE CARD (Mobile & Web Optimized) */}
-      <div
-        className={`w-full max-w-xl mx-auto rounded-3xl border p-4 sm:p-7 backdrop-blur-md shadow-xl transition-all duration-300 ${
-          isDark
-            ? 'border-gold-400/40 bg-gradient-to-b from-[#35070E]/90 via-[#220409]/95 to-[#160205]/98 shadow-[0_20px_50px_rgba(0,0,0,0.7)]'
-            : 'border-gold-400/60 bg-gradient-to-b from-[#FFFFFF] via-[#FFFDF9] to-[#FBF4E6] shadow-[0_20px_50px_rgba(180,130,40,0.14)]'
-        }`}
-      >
-        {/* DAY 1: 29 NOV (SUNDAY) */}
-        <div className="flex items-start gap-4 sm:gap-6 py-2">
-          {/* Left Date Block */}
-          <div className="flex flex-col items-center justify-center min-w-[70px] sm:min-w-[85px] pt-1 text-center">
-            <span
-              className={`font-serif text-3xl sm:text-4xl font-bold leading-none ${
-                isDark ? 'text-gold-200' : 'text-[#660C1E]'
-              }`}
-            >
-              29
-            </span>
-            <span
-              className={`font-cinzel text-xs font-bold tracking-widest uppercase mt-0.5 ${
-                isDark ? 'text-gold-400' : 'text-gold-700'
-              }`}
-            >
-              NOV
-            </span>
-            <span
-              className={`text-[10px] font-cinzel font-semibold tracking-wider uppercase mt-0.5 ${
-                isDark ? 'text-ivory-300/70' : 'text-[#7A4B1A]'
-              }`}
-            >
-              {currentLang === 'ta' ? 'ஞாயிறு' : currentLang === 'hi' ? 'रविवार' : 'SUNDAY'}
-            </span>
-          </div>
+      {/* Grid of Event Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-12">
+        {weddingData.events.map((event: CeremonyEvent) => {
+          const parts = event.date.split('-');
+          const dayNumber = parts[2] || '30';
+          const monthShort = 'NOV';
+          const isMuhurtham = event.id === 'muhurtham';
 
-          {/* Vertical Divider */}
-          <div className={`w-[1px] self-stretch my-1 ${isDark ? 'bg-gold-500/25' : 'bg-gold-400/35'}`} />
-
-          {/* Right Events Column */}
-          <div className="flex-1 min-w-0 space-y-2">
-            <div
-              className={`p-3 rounded-2xl border transition-all duration-300 ${
+          return (
+            <article
+              key={event.id}
+              className={`relative rounded-3xl p-6 sm:p-8 border transition-all duration-300 flex flex-col justify-between ${
                 isDark
-                  ? 'bg-maroon-950/60 border-gold-400/20 hover:border-gold-400/40'
-                  : 'bg-white/90 border-gold-300/50 hover:border-gold-400 shadow-xs'
+                  ? isMuhurtham
+                    ? 'border-gold-300 bg-gradient-to-b from-[#4A0E17]/95 via-[#2E050D]/95 to-[#1E0308]/98 ring-2 ring-gold-400/30 shadow-[0_15px_40px_rgba(0,0,0,0.7)]'
+                    : 'border-gold-400/40 bg-gradient-to-b from-[#35070E]/85 via-[#240409]/90 to-[#180206]/95 shadow-[0_15px_40px_rgba(0,0,0,0.6)]'
+                  : isMuhurtham
+                  ? 'border-gold-500 bg-gradient-to-b from-[#FFFDF6] via-[#FDF5E2] to-[#FBF0D2] ring-2 ring-gold-500/40 shadow-[0_20px_50px_rgba(180,130,40,0.18)]'
+                  : 'border-gold-400/60 bg-gradient-to-b from-[#FFFFFF]/98 via-[#FFFDF8]/98 to-[#FDF8ED]/98 shadow-[0_15px_40px_rgba(170,120,30,0.12)]'
               }`}
             >
-              <div className="flex items-center gap-2 mb-1">
-                <span className="p-1 rounded-full bg-gold-400/15 text-gold-600 dark:text-gold-300">
-                  <Sparkles className="w-3.5 h-3.5" />
-                </span>
-                <h4
-                  className={`font-serif text-base sm:text-lg font-bold truncate ${
+
+              {/* Card Top: Date & Ceremony Badge */}
+              <div>
+                <div
+                  className={`flex items-center justify-between border-b pb-4 mb-5 ${
+                    isDark ? 'border-gold-500/20' : 'border-gold-500/30'
+                  }`}
+                >
+                  {/* Calendar Date Block */}
+                  <div className="flex items-center space-x-3">
+                    <div
+                      className={`flex flex-col items-center justify-center w-14 h-16 rounded-xl border shadow-inner ${
+                        isDark
+                          ? 'border-gold-400/60 bg-maroon-900/90'
+                          : 'border-gold-400/80 bg-[#FDF3D8]'
+                      }`}
+                    >
+                      <span
+                        className={`font-serif text-2xl font-bold leading-none ${
+                          isDark ? 'text-gold-300' : 'text-[#6B1124]'
+                        }`}
+                      >
+                        {dayNumber}
+                      </span>
+                      <span
+                        className={`text-[10px] font-cinzel font-semibold tracking-wider ${
+                          isDark ? 'text-ivory-200' : 'text-gold-800'
+                        }`}
+                      >
+                        {monthShort}
+                      </span>
+                    </div>
+
+                    <div>
+                      <p
+                        className={`text-xs font-serif font-medium ${
+                          isDark ? 'text-gold-300' : 'text-[#660C1E]'
+                        }`}
+                      >
+                        {event.dayName[currentLang]}
+                      </p>
+                      <div
+                        className={`flex items-center space-x-1.5 text-xs font-serif mt-0.5 ${
+                          isDark ? 'text-ivory-200/80' : 'text-[#5C3E44]'
+                        }`}
+                      >
+                        <Clock className={`w-3.5 h-3.5 ${isDark ? 'text-gold-400' : 'text-gold-600'}`} />
+                        <span>{event.time[currentLang]}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Motif Icon on Top Right */}
+                  <div>
+                    {isMuhurtham ? (
+                      <ThaliMotif
+                        className={`w-10 h-10 ${
+                          isDark
+                            ? 'drop-shadow-[0_0_10px_rgba(212,175,55,0.6)] text-gold-300'
+                            : 'drop-shadow-[0_0_8px_rgba(180,130,40,0.3)] text-gold-600'
+                        }`}
+                      />
+                    ) : (
+                      <KuthuvilakkuLamp
+                        className={`w-6 h-12 ${isDark ? 'text-gold-400' : 'text-gold-600'}`}
+                      />
+                    )}
+                  </div>
+                </div>
+
+                {/* Event Name & Subtitle */}
+                <h3
+                  className={`font-serif text-2xl sm:text-3xl font-bold mb-1 ${
                     isDark ? 'text-ivory-50' : 'text-[#4A0E17]'
                   }`}
                 >
-                  {headerText.receptionName}
-                </h4>
-              </div>
-              <p
-                className={`flex items-center gap-1.5 text-xs font-medium pl-6 ${
-                  isDark ? 'text-gold-300/90' : 'text-[#7A4B1A]'
-                }`}
-              >
-                <Clock className="w-3 h-3 text-gold-500" />
-                <span>{headerText.receptionTime}</span>
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Subtle Horizontal Divider */}
-        <div className={`my-4 h-[1px] w-full bg-gradient-to-r from-transparent via-gold-400/40 to-transparent`} />
-
-        {/* DAY 2: 30 NOV (MONDAY) */}
-        <div className="flex items-start gap-4 sm:gap-6 py-2">
-          {/* Left Date Block */}
-          <div className="flex flex-col items-center justify-center min-w-[70px] sm:min-w-[85px] pt-1 text-center">
-            <span
-              className={`font-serif text-3xl sm:text-4xl font-bold leading-none ${
-                isDark ? 'text-gold-200' : 'text-[#660C1E]'
-              }`}
-            >
-              30
-            </span>
-            <span
-              className={`font-cinzel text-xs font-bold tracking-widest uppercase mt-0.5 ${
-                isDark ? 'text-gold-400' : 'text-gold-700'
-              }`}
-            >
-              NOV
-            </span>
-            <span
-              className={`text-[10px] font-cinzel font-semibold tracking-wider uppercase mt-0.5 ${
-                isDark ? 'text-ivory-300/70' : 'text-[#7A4B1A]'
-              }`}
-            >
-              {currentLang === 'ta' ? 'திங்கள்' : currentLang === 'hi' ? 'सोमवार' : 'MONDAY'}
-            </span>
-          </div>
-
-          {/* Vertical Divider */}
-          <div className={`w-[1px] self-stretch my-1 ${isDark ? 'bg-gold-500/25' : 'bg-gold-400/35'}`} />
-
-          {/* Right Events Column */}
-          <div className="flex-1 min-w-0 space-y-2.5">
-            {/* Muhurtham (Highlight Card) */}
-            <div
-              className={`p-3 rounded-2xl border transition-all duration-300 relative ${
-                isDark
-                  ? 'bg-gradient-to-r from-[#4E0E18]/80 to-[#32070E]/90 border-gold-400/60 shadow-md ring-1 ring-gold-400/20'
-                  : 'bg-gradient-to-r from-[#FFFBF0] to-[#FDF4DF] border-gold-500/70 shadow-sm ring-1 ring-gold-500/20'
-              }`}
-            >
-              <div className="flex items-center justify-between mb-1">
-                <div className="flex items-center gap-2">
-                  <span className="p-1 rounded-full bg-gold-400/20 text-gold-600 dark:text-gold-300">
-                    <ThaliMotif className="w-3.5 h-3.5" />
-                  </span>
-                  <h4
-                    className={`font-serif text-base sm:text-lg font-bold truncate ${
-                      isDark ? 'text-gold-100' : 'text-[#5C0A19]'
+                  {event.name[currentLang]}
+                </h3>
+                {event.subtitle && (
+                  <p
+                    className={`text-xs sm:text-sm font-cormorant italic mb-3 ${
+                      isDark ? 'text-gold-300/90' : 'text-gold-700'
                     }`}
                   >
-                    {headerText.muhurthamName}
-                  </h4>
-                </div>
-                <span className="px-2 py-0.5 rounded-full text-[9px] font-cinzel font-bold tracking-wider uppercase bg-gold-400/20 border border-gold-400/40 text-gold-700 dark:text-gold-300">
-                  {headerText.muhurthamTag}
-                </span>
-              </div>
-              <p
-                className={`flex items-center gap-1.5 text-xs font-semibold pl-6 ${
-                  isDark ? 'text-gold-200' : 'text-[#7A4B1A]'
-                }`}
-              >
-                <Clock className="w-3 h-3 text-gold-500" />
-                <span>{headerText.muhurthamTime}</span>
-              </p>
-            </div>
+                    {event.subtitle[currentLang]}
+                  </p>
+                )}
 
-            {/* Kalyana Virundhu */}
-            <div
-              className={`p-3 rounded-2xl border transition-all duration-300 ${
-                isDark
-                  ? 'bg-maroon-950/60 border-gold-400/20 hover:border-gold-400/40'
-                  : 'bg-white/90 border-gold-300/50 hover:border-gold-400 shadow-xs'
-              }`}
-            >
-              <div className="flex items-center gap-2 mb-1">
-                <span className="p-1 rounded-full bg-gold-400/15 text-gold-600 dark:text-gold-300">
-                  <Utensils className="w-3.5 h-3.5" />
-                </span>
-                <h4
-                  className={`font-serif text-base sm:text-lg font-bold truncate ${
-                    isDark ? 'text-ivory-50' : 'text-[#4A0E17]'
+                {/* Description */}
+                <p
+                  className={`text-xs sm:text-sm font-cormorant leading-relaxed mb-5 ${
+                    isDark ? 'text-ivory-200/85' : 'text-[#472E33]'
                   }`}
                 >
-                  {headerText.feastName}
-                </h4>
+                  {event.description[currentLang]}
+                </p>
+
+                {/* Dress Code suggestion */}
+                {event.dressCode && (
+                  <div
+                    className={`flex items-start space-x-2 text-xs p-2.5 rounded-xl border mb-5 ${
+                      isDark
+                        ? 'text-gold-200/90 bg-gold-500/10 border-gold-400/20'
+                        : 'text-[#5C0617] bg-[#FAF0D5] border-gold-400/50'
+                    }`}
+                  >
+                    <Sparkles className={`w-3.5 h-3.5 mt-0.5 shrink-0 ${isDark ? 'text-gold-400' : 'text-gold-600'}`} />
+                    <span>
+                      <strong className={isDark ? 'text-gold-300' : 'text-[#6B1124]'}>
+                        {t.dressCodeLabel}
+                      </strong>{' '}
+                      {event.dressCode[currentLang]}
+                    </span>
+                  </div>
+                )}
+
+                {/* Venue Details */}
+                <div
+                  className={`space-y-1 text-xs sm:text-sm font-serif border-t pt-4 mb-6 ${
+                    isDark
+                      ? 'text-ivory-200/90 border-gold-500/15'
+                      : 'text-[#3B1F24] border-gold-500/25'
+                  }`}
+                >
+                  <div className="flex items-start space-x-2">
+                    <MapPin className={`w-4 h-4 shrink-0 mt-0.5 ${isDark ? 'text-gold-400' : 'text-gold-600'}`} />
+                    <div>
+                      <p className={`font-bold ${isDark ? 'text-ivory-100' : 'text-[#4A0E17]'}`}>
+                        {event.venueName[currentLang]}
+                      </p>
+                      <p className={isDark ? 'text-ivory-300/70' : 'text-[#5E4247]'}>
+                        {event.venueAddress[currentLang]}
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <p
-                className={`flex items-center gap-1.5 text-xs font-medium pl-6 ${
-                  isDark ? 'text-gold-300/90' : 'text-[#7A4B1A]'
-                }`}
-              >
-                <Clock className="w-3 h-3 text-gold-500" />
-                <span>{headerText.feastTime}</span>
-                <span className="opacity-60">• {headerText.feastSub}</span>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      {/* INTEGRATED WEDDING VENUE CARD (Directly below schedule, no heavy map iframe!) */}
-      <div
-        id="venue"
-        className={`w-full max-w-xl mx-auto mt-5 rounded-3xl border p-5 sm:p-7 backdrop-blur-md shadow-xl text-center transition-all duration-300 ${
-          isDark
-            ? 'border-gold-400/50 bg-gradient-to-b from-[#35070E]/90 via-[#220409]/95 to-[#160205]/98 shadow-[0_20px_50px_rgba(0,0,0,0.7)]'
-            : 'border-gold-500/60 bg-gradient-to-b from-[#FFFFFF] via-[#FFFDF9] to-[#FBF4E6] shadow-[0_20px_50px_rgba(180,130,40,0.16)]'
-        }`}
-      >
-        <span
-          className={`inline-block px-3 py-0.5 rounded-full text-[10px] font-cinzel font-bold tracking-widest uppercase mb-2 border ${
-            isDark
-              ? 'text-gold-300 bg-gold-500/10 border-gold-400/30'
-              : 'text-[#7A4B1A] bg-[#FDF6E5] border-gold-500/50'
-          }`}
-        >
-          {headerText.venueTag}
-        </span>
+              {/* Action Buttons: Get Directions & Add to Calendar */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                <a
+                  href={event.mapUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`inline-flex items-center justify-center space-x-2 py-2.5 px-4 rounded-xl border font-serif text-xs font-semibold tracking-wider transition-colors cursor-pointer ${
+                    isDark
+                      ? 'bg-gold-500/15 hover:bg-gold-500/25 border-gold-400/50 text-gold-200 hover:text-gold-100'
+                      : 'bg-[#FFFDF8] hover:bg-[#FDF6E5] border-gold-500 text-[#5C0617] hover:text-[#4A0E17] shadow-sm'
+                  }`}
+                >
+                  <Navigation className="w-3.5 h-3.5" />
+                  <span>{t.openMapBtn}</span>
+                </a>
 
-        <h3
-          className={`font-serif text-xl sm:text-2xl font-bold tracking-wide mb-1.5 ${
-            isDark ? 'text-ivory-50' : 'text-[#5C0A19]'
-          }`}
-        >
-          {primaryVenue.name[currentLang]}
-        </h3>
-
-        <p
-          className={`text-xs sm:text-sm font-serif italic max-w-md mx-auto mb-5 ${
-            isDark ? 'text-ivory-300/80' : 'text-[#6B4E32]'
-          }`}
-        >
-          {primaryVenue.address[currentLang]}
-        </p>
-
-        {/* Action Buttons: Get Directions & Add to Calendar */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto">
-          {/* Primary: Get Directions directly opens Google Maps */}
-          <a
-            href={primaryVenue.mapUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full sm:flex-1 py-3 px-5 rounded-full bg-gradient-to-r from-gold-500 via-gold-400 to-gold-500 text-maroon-950 font-serif text-xs sm:text-sm font-bold tracking-wider uppercase shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer transform hover:scale-[1.02] active:scale-95"
-          >
-            <Navigation className="w-4 h-4" />
-            <span>{headerText.getDirections}</span>
-          </a>
-
-          {/* Secondary: Add to Calendar */}
-          <button
-            onClick={() => downloadIcsFile(weddingData.events[1], currentLang, coupleNames)}
-            className={`w-full sm:flex-1 py-3 px-5 rounded-full border text-xs sm:text-sm font-serif font-bold tracking-wider uppercase transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer transform hover:scale-[1.02] active:scale-95 ${
-              isDark
-                ? 'border-gold-400/50 bg-maroon-950/70 text-gold-200 hover:bg-gold-500/15'
-                : 'border-gold-500/70 bg-[#FFFDF8] text-[#660C1E] hover:bg-[#FAF2DF] shadow-xs'
-            }`}
-          >
-            <CalendarPlus className="w-4 h-4 text-gold-600 dark:text-gold-300" />
-            <span>{headerText.addToCalendar}</span>
-          </button>
-        </div>
-
-        {/* Bottom Facility & Helpdesk Line */}
-        <div
-          className={`flex items-center justify-between text-[11px] pt-4 mt-4 border-t px-2 ${
-            isDark ? 'border-gold-500/20 text-gold-300/80' : 'border-gold-400/30 text-gold-800'
-          }`}
-        >
-          <span className="flex items-center gap-1.5">
-            <Car className="w-3.5 h-3.5" />
-            <span>{headerText.valet}</span>
-          </span>
-          <a
-            href={`tel:${contactNumber}`}
-            className="flex items-center gap-1.5 hover:underline font-medium"
-          >
-            <Phone className="w-3.5 h-3.5" />
-            <span>{headerText.helpdesk}: {contactNumber}</span>
-          </a>
-        </div>
+                <button
+                  onClick={() => downloadIcsFile(event, currentLang, coupleNames)}
+                  className="inline-flex items-center justify-center space-x-2 py-2.5 px-4 rounded-xl bg-gradient-to-r from-gold-500 to-gold-400 text-maroon-950 font-serif text-xs font-bold tracking-wider hover:brightness-110 shadow-md transition-all cursor-pointer"
+                >
+                  <CalendarPlus className="w-3.5 h-3.5" />
+                  <span>{t.addToCalendarBtn}</span>
+                </button>
+              </div>
+            </article>
+          );
+        })}
       </div>
     </section>
   );

@@ -3,10 +3,11 @@ import { SupportedLanguage } from './types/wedding';
 import { OpeningEntrance } from './components/OpeningEntrance';
 import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
+import { DateScratchCard } from './components/DateScratchCard';
 import { CountdownTimer } from './components/CountdownTimer';
 import { CeremoniesList } from './components/CeremoniesList';
-import { CoupleStory } from './components/CoupleStory';
 import { SacredBond } from './components/SacredBond';
+import { VenueSection } from './components/VenueSection';
 import { FamilyBlessings } from './components/FamilyBlessings';
 import { Footer } from './components/Footer';
 import { MusicPlayer } from './components/MusicPlayer';
@@ -51,23 +52,24 @@ const AppContent: React.FC = () => {
         {/* Save The Date & Live Countdown Section */}
         <section
           id="date"
-          className={`relative py-10 px-4 transition-colors duration-500 ${
+          className={`relative py-16 px-4 transition-colors duration-500 ${
             isDark
               ? 'bg-gradient-to-b from-[#1F0407] via-[#2A040B] to-[#1F0407]'
               : 'bg-gradient-to-b from-[#F5EFE3] via-[#FAF6EE] to-[#F5EFE3]'
           }`}
         >
+          <DateScratchCard currentLang={currentLang} />
           <CountdownTimer currentLang={currentLang} />
         </section>
 
-        {/* Wedding Ceremonies & Venue Navigation (Integrated Schedule + Venue) */}
+        {/* Wedding Ceremonies & Events */}
         <CeremoniesList currentLang={currentLang} />
-
-        {/* The Couple */}
-        <CoupleStory currentLang={currentLang} />
 
         {/* Sacred Union Centerpiece (Panigrahana) */}
         <SacredBond currentLang={currentLang} />
+
+        {/* Venue Location & Navigation */}
+        <VenueSection currentLang={currentLang} />
 
         {/* Family Blessings & WhatsApp Sharing */}
         <FamilyBlessings currentLang={currentLang} />

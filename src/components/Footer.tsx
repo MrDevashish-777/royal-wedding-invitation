@@ -26,7 +26,7 @@ export const Footer: React.FC<FooterProps> = ({ currentLang }) => {
 
   return (
     <footer
-      className={`relative pt-12 pb-10 px-4 text-center overflow-hidden border-t transition-colors duration-500 ${
+      className={`relative pt-20 pb-12 px-4 text-center overflow-hidden border-t transition-colors duration-500 ${
         isDark
           ? 'bg-[#150205] border-gold-500/30'
           : 'bg-[#F5EDE0] border-gold-600/40 shadow-inner'
