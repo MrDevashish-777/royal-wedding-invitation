@@ -3,12 +3,10 @@ import { SupportedLanguage } from './types/wedding';
 import { OpeningEntrance } from './components/OpeningEntrance';
 import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
-import { DateScratchCard } from './components/DateScratchCard';
 import { CountdownTimer } from './components/CountdownTimer';
 import { CeremoniesList } from './components/CeremoniesList';
 import { CoupleStory } from './components/CoupleStory';
 import { SacredBond } from './components/SacredBond';
-import { VenueSection } from './components/VenueSection';
 import { FamilyBlessings } from './components/FamilyBlessings';
 import { Footer } from './components/Footer';
 import { MusicPlayer } from './components/MusicPlayer';
@@ -59,11 +57,10 @@ const AppContent: React.FC = () => {
               : 'bg-gradient-to-b from-[#F5EFE3] via-[#FAF6EE] to-[#F5EFE3]'
           }`}
         >
-          <DateScratchCard currentLang={currentLang} />
           <CountdownTimer currentLang={currentLang} />
         </section>
 
-        {/* Wedding Ceremonies & Events */}
+        {/* Wedding Ceremonies & Events (Includes Unified Mobile Venue Card) */}
         <CeremoniesList currentLang={currentLang} />
 
         {/* The Couple */}
@@ -71,9 +68,6 @@ const AppContent: React.FC = () => {
 
         {/* Sacred Union Centerpiece (Panigrahana) */}
         <SacredBond currentLang={currentLang} />
-
-        {/* Venue Location & Navigation */}
-        <VenueSection currentLang={currentLang} />
 
         {/* Family Blessings & WhatsApp Sharing */}
         <FamilyBlessings currentLang={currentLang} />
