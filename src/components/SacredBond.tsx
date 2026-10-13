@@ -46,9 +46,9 @@ export const SacredBond: React.FC<SacredBondProps> = ({ currentLang }) => {
   }[currentLang];
 
   return (
-    <section id="sacred-bond" className="relative py-20 px-4 max-w-5xl mx-auto transition-colors duration-500">
+    <section id="sacred-bond" className="relative py-12 sm:py-16 px-4 max-w-5xl mx-auto transition-colors duration-500">
       {/* Section Header */}
-      <div className="text-center mb-12 max-w-2xl mx-auto">
+      <div className="text-center mb-8 max-w-2xl mx-auto">
         <div className="flex justify-center mb-2">
           <ThaliMotif
             className={`w-12 h-12 ${
@@ -128,7 +128,7 @@ export const SacredBond: React.FC<SacredBondProps> = ({ currentLang }) => {
             <img
               src="/assets/art/south-indian-panigrahana.jpg"
               alt="Sacred Hand in Hand (Panigrahana) - V. Yogesh Mudaliar (Yash) & Kanagalakshmi Natarajan (Kavya)"
-              className="w-full h-[460px] sm:h-[560px] object-cover object-center filter brightness-[1.02] contrast-[1.05] transition-transform duration-1000 group-hover:scale-105"
+              className="w-full h-[360px] sm:h-[480px] object-cover object-center filter brightness-[1.02] contrast-[1.05] transition-transform duration-1000 group-hover:scale-105"
             />
 
             {/* Subtle Vignette & Gradient for poetic depth */}

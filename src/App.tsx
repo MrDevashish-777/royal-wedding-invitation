@@ -51,7 +51,7 @@ const AppContent: React.FC = () => {
         {/* Save The Date & Live Countdown Section */}
         <section
           id="date"
-          className={`relative py-16 px-4 transition-colors duration-500 ${
+          className={`relative py-10 px-4 transition-colors duration-500 ${
             isDark
               ? 'bg-gradient-to-b from-[#1F0407] via-[#2A040B] to-[#1F0407]'
               : 'bg-gradient-to-b from-[#F5EFE3] via-[#FAF6EE] to-[#F5EFE3]'
@@ -60,7 +60,7 @@ const AppContent: React.FC = () => {
           <CountdownTimer currentLang={currentLang} />
         </section>
 
-        {/* Wedding Ceremonies & Events (Includes Unified Mobile Venue Card) */}
+        {/* Wedding Ceremonies & Venue Navigation (Integrated Schedule + Venue) */}
         <CeremoniesList currentLang={currentLang} />
 
         {/* The Couple */}

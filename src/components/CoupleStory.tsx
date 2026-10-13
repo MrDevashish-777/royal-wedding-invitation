@@ -15,9 +15,9 @@ export const CoupleStory: React.FC<CoupleStoryProps> = ({ currentLang }) => {
   const { isDark } = useTheme();
 
   return (
-    <section id="couple" className="relative py-20 px-4 max-w-6xl mx-auto overflow-hidden transition-colors duration-500">
+    <section id="couple" className="relative py-12 sm:py-16 px-4 max-w-6xl mx-auto overflow-hidden transition-colors duration-500">
       {/* Section Heading */}
-      <div className="text-center mb-14">
+      <div className="text-center mb-8 sm:mb-10">
         <p
           className={`text-xs sm:text-sm font-cinzel tracking-[0.25em] uppercase mb-1 ${
             isDark ? 'text-gold-400' : 'text-gold-700'
@@ -26,7 +26,7 @@ export const CoupleStory: React.FC<CoupleStoryProps> = ({ currentLang }) => {
           {t.coupleTitle}
         </p>
         <h2
-          className={`font-serif text-3xl sm:text-5xl font-bold tracking-tight drop-shadow-md text-transparent bg-clip-text ${
+          className={`font-serif text-2xl sm:text-4xl font-bold tracking-tight drop-shadow-md text-transparent bg-clip-text ${
             isDark
               ? 'bg-gradient-to-r from-gold-100 via-gold-300 to-gold-400'
               : 'bg-gradient-to-r from-[#660C1E] via-[#8C162E] to-[#660C1E]'
@@ -34,14 +34,14 @@ export const CoupleStory: React.FC<CoupleStoryProps> = ({ currentLang }) => {
         >
           {t.coupleSubtitle}
         </h2>
-        <GoldFiligreeDivider className="max-w-xs mx-auto my-4" />
+        <GoldFiligreeDivider className="max-w-xs mx-auto my-3" />
       </div>
 
       {/* Groom & Bride Cards - Groom First */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-4xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">
         {/* Groom Card */}
         <div
-          className={`relative group p-6 sm:p-8 rounded-3xl border backdrop-blur-md text-center transition-all duration-300 ${
+          className={`relative group p-5 sm:p-7 rounded-3xl border backdrop-blur-md text-center transition-all duration-300 ${
             isDark
               ? 'border-gold-400/40 bg-gradient-to-b from-[#35070E]/80 via-[#240409]/90 to-[#180206]/95 shadow-[0_15px_40px_rgba(0,0,0,0.6)] hover:border-gold-300'
               : 'border-gold-400/60 bg-gradient-to-b from-[#FFFFFF]/98 via-[#FFFDF8]/98 to-[#FDF8EE]/98 shadow-[0_15px_40px_rgba(170,120,30,0.12)] hover:border-gold-500'
@@ -49,16 +49,16 @@ export const CoupleStory: React.FC<CoupleStoryProps> = ({ currentLang }) => {
         >
           <CornerOrnament
             position="top-left"
-            className={`absolute top-2 left-2 w-8 h-8 ${isDark ? 'text-gold-400/60' : 'text-gold-600/70'}`}
+            className={`absolute top-2 left-2 w-7 h-7 ${isDark ? 'text-gold-400/60' : 'text-gold-600/70'}`}
           />
           <CornerOrnament
             position="top-right"
-            className={`absolute top-2 right-2 w-8 h-8 ${isDark ? 'text-gold-400/60' : 'text-gold-600/70'}`}
+            className={`absolute top-2 right-2 w-7 h-7 ${isDark ? 'text-gold-400/60' : 'text-gold-600/70'}`}
           />
 
           {/* Photo Frame with Royal Border */}
           <div
-            className={`relative w-44 h-44 sm:w-52 sm:h-52 mx-auto mb-6 rounded-full p-2 border-2 shadow-lg ${
+            className={`relative w-36 h-36 sm:w-44 sm:h-44 mx-auto mb-4 rounded-full p-1.5 border-2 shadow-lg ${
               isDark
                 ? 'border-gold-400/80 bg-gradient-to-br from-gold-300 via-maroon-900 to-gold-500 shadow-[0_0_25px_rgba(212,175,55,0.3)]'
                 : 'border-gold-500 bg-gradient-to-br from-gold-200 via-[#FFFDF8] to-gold-400 shadow-[0_0_20px_rgba(180,130,40,0.2)]'
@@ -176,7 +176,7 @@ export const CoupleStory: React.FC<CoupleStoryProps> = ({ currentLang }) => {
 
         {/* Bride Card */}
         <div
-          className={`relative group p-6 sm:p-8 rounded-3xl border backdrop-blur-md text-center transition-all duration-300 ${
+          className={`relative group p-5 sm:p-7 rounded-3xl border backdrop-blur-md text-center transition-all duration-300 ${
             isDark
               ? 'border-gold-400/40 bg-gradient-to-b from-[#35070E]/80 via-[#240409]/90 to-[#180206]/95 shadow-[0_15px_40px_rgba(0,0,0,0.6)] hover:border-gold-300'
               : 'border-gold-400/60 bg-gradient-to-b from-[#FFFFFF]/98 via-[#FFFDF8]/98 to-[#FDF8EE]/98 shadow-[0_15px_40px_rgba(170,120,30,0.12)] hover:border-gold-500'
@@ -184,16 +184,16 @@ export const CoupleStory: React.FC<CoupleStoryProps> = ({ currentLang }) => {
         >
           <CornerOrnament
             position="top-left"
-            className={`absolute top-2 left-2 w-8 h-8 ${isDark ? 'text-gold-400/60' : 'text-gold-600/70'}`}
+            className={`absolute top-2 left-2 w-7 h-7 ${isDark ? 'text-gold-400/60' : 'text-gold-600/70'}`}
           />
           <CornerOrnament
             position="top-right"
-            className={`absolute top-2 right-2 w-8 h-8 ${isDark ? 'text-gold-400/60' : 'text-gold-600/70'}`}
+            className={`absolute top-2 right-2 w-7 h-7 ${isDark ? 'text-gold-400/60' : 'text-gold-600/70'}`}
           />
 
           {/* Photo Frame with Royal Border */}
           <div
-            className={`relative w-44 h-44 sm:w-52 sm:h-52 mx-auto mb-6 rounded-full p-2 border-2 shadow-lg ${
+            className={`relative w-36 h-36 sm:w-44 sm:h-44 mx-auto mb-4 rounded-full p-1.5 border-2 shadow-lg ${
               isDark
                 ? 'border-gold-400/80 bg-gradient-to-br from-gold-300 via-maroon-900 to-gold-500 shadow-[0_0_25px_rgba(212,175,55,0.3)]'
                 : 'border-gold-500 bg-gradient-to-br from-gold-200 via-[#FFFDF8] to-gold-400 shadow-[0_0_20px_rgba(180,130,40,0.2)]'

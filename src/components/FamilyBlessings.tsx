@@ -63,10 +63,10 @@ export const FamilyBlessings: React.FC<FamilyBlessingsProps> = ({ currentLang })
   };
 
   return (
-    <section id="blessings" className="relative py-20 px-4 max-w-4xl mx-auto transition-colors duration-500">
+    <section id="blessings" className="relative py-12 sm:py-16 px-4 max-w-4xl mx-auto transition-colors duration-500">
       {/* Central Blessing Card */}
       <div
-        className={`relative p-8 sm:p-12 rounded-3xl border backdrop-blur-md text-center transition-all duration-300 ${
+        className={`relative p-6 sm:p-10 rounded-3xl border backdrop-blur-md text-center transition-all duration-300 ${
           isDark
             ? 'border-gold-400/50 bg-gradient-to-b from-[#35070E]/90 via-[#240409]/95 to-[#160205]/98 shadow-[0_20px_50px_rgba(0,0,0,0.7)]'
             : 'border-gold-400/70 bg-gradient-to-b from-[#FFFFFF]/98 via-[#FFFDF8]/98 to-[#FDF8ED]/98 shadow-[0_20px_50px_rgba(170,120,30,0.12)]'
