@@ -117,30 +117,6 @@ export const FamilyBlessings: React.FC<FamilyBlessingsProps> = ({ currentLang })
 
         <GoldFiligreeDivider className="max-w-xs mx-auto my-4" />
 
-        {/* Auspicious Shloka */}
-        <div
-          className={`max-w-xl mx-auto my-4 p-4 rounded-2xl border transition-colors ${
-            isDark
-              ? 'bg-maroon-950/70 border-gold-500/20'
-              : 'bg-[#FAF2DF] border-gold-400/50 shadow-inner'
-          }`}
-        >
-          <p
-            className={`font-tamil text-sm sm:text-base leading-relaxed italic ${
-              isDark ? 'text-gold-200' : 'text-[#6B1124]'
-            }`}
-          >
-            "{t.sacredShloka}"
-          </p>
-          <p
-            className={`font-serif text-xs mt-2 italic ${
-              isDark ? 'text-ivory-300/70' : 'text-[#6B4E32]'
-            }`}
-          >
-            {t.sacredShlokaMeaning}
-          </p>
-        </div>
-
         {/* Heartfelt family message */}
         <p
           className={`text-sm sm:text-base font-cormorant leading-relaxed max-w-2xl mx-auto my-6 ${
