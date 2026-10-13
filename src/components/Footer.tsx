@@ -147,18 +147,26 @@ export const Footer: React.FC<FooterProps> = ({ currentLang }) => {
           }`}
         />
 
-        <div
-          className={`flex items-center space-x-1.5 text-xs font-serif ${
-            isDark ? 'text-ivory-300/60' : 'text-[#6A4E55]'
+        <a
+          href="mailto:devashishpillay777@gmail.com?subject=Royal%20Wedding%20Invitation%20Website%20Inquiry"
+          className={`group inline-flex items-center space-x-1.5 text-xs sm:text-sm font-serif transition-all duration-300 py-1.5 px-4 rounded-full border border-gold-400/20 hover:border-gold-400/50 shadow-xs cursor-pointer relative z-10 ${
+            isDark
+              ? 'text-ivory-300/80 hover:text-gold-200 bg-maroon-950/40 hover:bg-gold-500/10'
+              : 'text-[#6A4E55] hover:text-[#7A1224] bg-[#FAF5EC]/80 hover:bg-[#F5EDDE]'
           }`}
+          title="Contact T. Devashish Pillay (devashishpillay777@gmail.com)"
         >
-          <span>{t.madeWithLove}</span>
+          <span>Made with</span>
           <Heart
-            className={`w-3.5 h-3.5 ${
+            className={`w-3.5 h-3.5 transition-transform duration-300 group-hover:scale-125 ${
               isDark ? 'text-gold-400 fill-gold-400' : 'text-[#8A1528] fill-[#8A1528]'
             }`}
           />
-        </div>
+          <span>by</span>
+          <span className="font-semibold underline underline-offset-4 decoration-gold-400/70 group-hover:decoration-current">
+            T. Devashish Pillay
+          </span>
+        </a>
       </div>
 
       {/* PANORAMIC SOUTH INDIAN TEMPLE SKYLINE BANNER (Bottom Backdrop) */}

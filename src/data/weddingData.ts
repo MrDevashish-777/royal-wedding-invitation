@@ -398,7 +398,7 @@ export const weddingData: WeddingData = {
       audioPaused: 'Music Paused • Click to Play',
       footerThankYou: 'With Love, Blessings & Gratitude',
       seeYouThere: 'We Look Forward to Welcoming You',
-      madeWithLove: 'Crafted with royal traditional South Indian aesthetics',
+      madeWithLove: 'Made with ❤️ by T. Devashish Pillay',
       languageSelectLabel: 'Language / மொழி / भाषा',
     },
     ta: {
@@ -457,7 +457,7 @@ export const weddingData: WeddingData = {
       audioPaused: 'இசை நிறுத்தப்பட்டது • ஒலிக்கச் செய்ய கிளிக் செய்க',
       footerThankYou: 'அன்பும் நன்றியும் கலந்த நல்வாழ்த்துகளுடன்',
       seeYouThere: 'தங்கள் வருகையை ஆவலுடன் எதிர்பார்க்கிறோம்',
-      madeWithLove: 'பாரம்பரிய தென்னிந்திய கலையழகுடன் வடிவமைக்கப்பட்டது',
+      madeWithLove: 'Made with ❤️ by T. Devashish Pillay',
       languageSelectLabel: 'மொழி தெரிவு',
     },
     hi: {
@@ -516,7 +516,7 @@ export const weddingData: WeddingData = {
       audioPaused: 'संगीत रुका हुआ है • सुनने के लिए क्लिक करें',
       footerThankYou: 'सस्नेह एवं कृतज्ञता सहित',
       seeYouThere: 'हम आपके आगमन की प्रतीक्षा में हैं',
-      madeWithLove: 'शाही दक्षिण भारतीय परंपरा और कलात्मकता से निर्मित',
+      madeWithLove: 'Made with ❤️ by T. Devashish Pillay',
       languageSelectLabel: 'भाषा चयन',
     },
   },
