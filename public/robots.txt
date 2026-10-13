@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
+Sitemap: https://www.theyashkavyawedding.in/sitemap.xml
 Sitemap: https://theyashkavyawedding.in/sitemap.xml
