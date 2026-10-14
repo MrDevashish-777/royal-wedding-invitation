@@ -217,15 +217,15 @@ export const DateScratchCard: React.FC<DateScratchCardProps> = ({ currentLang })
           </div>
 
           <p
-            className={`text-xs sm:text-sm font-serif font-medium mt-1 ${
-              isDark ? 'text-gold-200/90' : 'text-[#660C1E]'
+            className={`text-sm sm:text-base md:text-lg font-serif font-bold mt-1.5 ${
+              isDark ? 'text-gold-200' : 'text-[#660C1E]'
             }`}
           >
             {weddingData.muhurthamTimeFormatted[currentLang]}
           </p>
           <p
-            className={`text-[11px] font-tamil mt-1 ${
-              isDark ? 'text-ivory-300/70' : 'text-[#7A4B1A]'
+            className={`text-xs sm:text-sm font-serif font-semibold mt-1 ${
+              isDark ? 'text-ivory-200/90' : 'text-[#7A4B1A]'
             }`}
           >
             {weddingData.auspiciousTithi[currentLang]}

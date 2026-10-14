@@ -17,12 +17,12 @@ export const weddingData: WeddingData = {
     groom: {
       name: {
         en: 'V. Yogesh Mudaliar (Yash)',
-        ta: 'வே. யோகேஷ் முதலியார் (யாஷ்)',
+        ta: 'வே. யோகேஷ் முதலியார் (யஷ்)',
         hi: 'वी. योगेश मुदलियार (यश)',
       },
       fullName: {
         en: 'V. Yogesh Mudaliar (Yash)',
-        ta: 'வே. யோகேஷ் முதலியார் (யாஷ்)',
+        ta: 'வே. யோகேஷ் முதலியார் (யஷ்)',
         hi: 'वी. योगेश मुदलियार (यश)',
       },
       title: {
@@ -47,7 +47,7 @@ export const weddingData: WeddingData = {
       },
       parents: {
         en: 'S/o. Mr. S. Venkatesh & Mrs. V. Rashmi (Perumpalai)',
-        ta: 'திரு. எஸ். வெங்கடேஷ் & திருமதி. வி. ரஷ்மி அவர்களின் புதல்வன் (பெரும்பாலை)',
+        ta: 'திரு. எஸ். வெங்கடேஷ் & திருமதி. வி. ரேஷ்மி அவர்களின் புதல்வன் (பெரும்பாலை)',
         hi: 'सुपुत्र: श्री एस. वेंकटेश एवं श्रीमती वी. रश्मि (पेरुमपलाई)',
       },
       photo: '/assets/images/yogesh-portrait.jpg',
@@ -178,11 +178,6 @@ export const weddingData: WeddingData = {
         hi: 'चेय्यार, तिरुवन्नामलाई जिला, तमिलनाडु',
       },
       mapUrl: 'https://www.google.com/maps/search/?api=1&query=Thaayaar+Abboy+Thirumana+Mahal+Cheyyar+Tamil+Nadu',
-      dressCode: {
-        en: 'Festive Ethnic / Silk Evening Attire',
-        ta: 'பாரம்பரிய பட்டு உடைகள் / மாலை நேர சிறப்பு ஆடை',
-        hi: 'उत्सव परिधान / पारंपरिक रेशमी वस्त्र',
-      },
       description: {
         en: 'Join us on this joyful evening to celebrate with music, congratulations, and dinner as both families welcome the newlyweds.',
         ta: 'புதுமணத் தம்பதிகளை வாழ்த்தி மகிழவும், சுவையான விருந்துடன் கொண்டாடவும் தங்களை அன்புடன் அழைக்கிறோம்.',
@@ -226,11 +221,6 @@ export const weddingData: WeddingData = {
         hi: 'चेय्यार, तिरुवन्नामलाई जिला, तमिलनाडु',
       },
       mapUrl: 'https://www.google.com/maps/search/?api=1&query=Thaayaar+Abboy+Thirumana+Mahal+Cheyyar+Tamil+Nadu',
-      dressCode: {
-        en: 'Traditional South Indian Silk (Pattu Pavadai, Veshti & Silk Sarees)',
-        ta: 'காஞ்சிபுரம் பட்டுப்புடவை & பட்டு வேஷ்டி சட்டை',
-        hi: 'कांचीपुरम सिल्क साड़ी एवं पारंपरिक रेशमी धोती-कुर्ता',
-      },
       description: {
         en: 'The auspicious Mangalyadharanam moment where the sacred Thali is tied amidst chanting of Vedic hymns and joyful crescendo of Ketti Melam.',
         ta: 'கெட்டி மேளம் முழங்க, பெரியோர்களின் அக்ஷதை ஆசிகளுடன் திருமாங்கல்யம் பூட்டும் புண்ணிய திருநாள்.',
@@ -257,7 +247,7 @@ export const weddingData: WeddingData = {
       url: '/assets/images/yogesh-portrait.jpg',
       title: {
         en: 'The Handsome Groom — V. Yogesh Mudaliar (Yash)',
-        ta: 'கம்பீர மணமகன் — வே. யோகேஷ் முதலியார் (யாஷ்)',
+        ta: 'கம்பீர மணமகன் — வே. யோகேஷ் முதலியார் (யஷ்)',
         hi: 'आकर्षक दूल्हा — वी. योगेश मुदलियार (यश)',
       },
       category: 'portrait',
@@ -433,7 +423,7 @@ export const weddingData: WeddingData = {
       ourStoryTitle: 'எங்கள் அன்புப் பயணம்',
       ourStorySubtitle: 'நட்பில் தொடங்கி இல்வாழ்க்கை வரை மலர்ந்த கதை',
       ceremoniesTitle: 'சுப திருமண வைபவங்கள்',
-      ceremoniesSubtitle: 'ஒவ்வொரு புனித சடங்கிலும் கலந்து எங்களை ஆசீர்வதியுங்கள்',
+      ceremoniesSubtitle: 'ஒவ்வொரு புனித சடங்கிலும் கலந்து கொண்டு எங்களை ஆசீர்வதியுங்கள்',
       openMapBtn: 'வழித்தடம் அறிய',
       addToCalendarBtn: 'நாட்காட்டியில் சேர்க்க',
       dressCodeLabel: 'பரிந்துரைக்கப்பட்ட உடை:',

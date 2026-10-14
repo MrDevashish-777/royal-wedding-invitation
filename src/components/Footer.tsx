@@ -113,8 +113,8 @@ export const Footer: React.FC<FooterProps> = ({ currentLang }) => {
         </h3>
 
         <p
-          className={`text-xs sm:text-sm font-cinzel tracking-widest uppercase mb-4 ${
-            isDark ? 'text-gold-400' : 'text-[#966E22] font-semibold'
+          className={`text-sm sm:text-base md:text-lg font-serif font-bold tracking-wide mb-4 ${
+            isDark ? 'text-gold-400' : 'text-[#966E22]'
           }`}
         >
           {weddingData.muhurthamTimeFormatted[currentLang]}

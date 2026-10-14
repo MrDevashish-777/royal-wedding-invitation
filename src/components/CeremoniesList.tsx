@@ -1,5 +1,5 @@
 import React from 'react';
-import { Clock, MapPin, Navigation, CalendarPlus, Sparkles } from 'lucide-react';
+import { Clock, MapPin, Navigation, CalendarPlus } from 'lucide-react';
 import { SupportedLanguage, CeremonyEvent } from '../types/wedding';
 import { weddingData } from '../data/weddingData';
 import { useTheme } from '../context/ThemeContext';
@@ -85,23 +85,23 @@ export const CeremoniesList: React.FC<CeremoniesListProps> = ({ currentLang }) =
                   }`}
                 >
                   {/* Calendar Date Block */}
-                  <div className="flex items-center space-x-3">
+                  <div className="flex items-center space-x-3.5 sm:space-x-4">
                     <div
-                      className={`flex flex-col items-center justify-center w-14 h-16 rounded-xl border shadow-inner ${
+                      className={`flex flex-col items-center justify-center w-16 h-20 sm:w-20 sm:h-22 rounded-2xl border shadow-inner shrink-0 ${
                         isDark
                           ? 'border-gold-400/60 bg-maroon-900/90'
                           : 'border-gold-400/80 bg-[#FDF3D8]'
                       }`}
                     >
                       <span
-                        className={`font-serif text-2xl font-bold leading-none ${
+                        className={`font-serif text-3xl sm:text-4xl font-extrabold leading-none ${
                           isDark ? 'text-gold-300' : 'text-[#6B1124]'
                         }`}
                       >
                         {dayNumber}
                       </span>
                       <span
-                        className={`text-[10px] font-cinzel font-semibold tracking-wider ${
+                        className={`text-xs font-cinzel font-bold tracking-wider mt-1.5 ${
                           isDark ? 'text-ivory-200' : 'text-gold-800'
                         }`}
                       >
@@ -111,18 +111,18 @@ export const CeremoniesList: React.FC<CeremoniesListProps> = ({ currentLang }) =
 
                     <div>
                       <p
-                        className={`text-xs font-serif font-medium ${
-                          isDark ? 'text-gold-300' : 'text-[#660C1E]'
+                        className={`text-base sm:text-lg md:text-xl font-serif font-bold leading-snug ${
+                          isDark ? 'text-gold-200' : 'text-[#660C1E]'
                         }`}
                       >
                         {event.dayName[currentLang]}
                       </p>
                       <div
-                        className={`flex items-center space-x-1.5 text-xs font-serif mt-0.5 ${
-                          isDark ? 'text-ivory-200/80' : 'text-[#5C3E44]'
+                        className={`flex items-center space-x-2 text-sm sm:text-base font-serif font-semibold mt-1.5 ${
+                          isDark ? 'text-ivory-100' : 'text-[#4A0814]'
                         }`}
                       >
-                        <Clock className={`w-3.5 h-3.5 ${isDark ? 'text-gold-400' : 'text-gold-600'}`} />
+                        <Clock className={`w-4 h-4 shrink-0 ${isDark ? 'text-gold-400' : 'text-gold-600'}`} />
                         <span>{event.time[currentLang]}</span>
                       </div>
                     </div>
@@ -172,25 +172,6 @@ export const CeremoniesList: React.FC<CeremoniesListProps> = ({ currentLang }) =
                 >
                   {event.description[currentLang]}
                 </p>
-
-                {/* Dress Code suggestion */}
-                {event.dressCode && (
-                  <div
-                    className={`flex items-start space-x-2 text-xs p-2.5 rounded-xl border mb-5 ${
-                      isDark
-                        ? 'text-gold-200/90 bg-gold-500/10 border-gold-400/20'
-                        : 'text-[#5C0617] bg-[#FAF0D5] border-gold-400/50'
-                    }`}
-                  >
-                    <Sparkles className={`w-3.5 h-3.5 mt-0.5 shrink-0 ${isDark ? 'text-gold-400' : 'text-gold-600'}`} />
-                    <span>
-                      <strong className={isDark ? 'text-gold-300' : 'text-[#6B1124]'}>
-                        {t.dressCodeLabel}
-                      </strong>{' '}
-                      {event.dressCode[currentLang]}
-                    </span>
-                  </div>
-                )}
 
                 {/* Venue Details */}
                 <div

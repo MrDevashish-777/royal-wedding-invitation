@@ -140,14 +140,22 @@ export const FamilyBlessings: React.FC<FamilyBlessingsProps> = ({ currentLang })
             >
               {currentLang === 'ta' ? 'மணமகன் குடும்பத்தார்' : currentLang === 'hi' ? 'वर पक्ष' : "Groom's Family"}
             </p>
-            <p className={`font-serif text-base font-bold mt-1 ${isDark ? 'text-ivory-100' : 'text-[#4A0E17]'}`}>
-              Mr. S. Venkatesh
+            <p className={`font-serif text-base sm:text-lg font-bold mt-1 ${isDark ? 'text-ivory-100' : 'text-[#4A0E17]'}`}>
+              {currentLang === 'ta'
+                ? 'திரு. எஸ். வெங்கடேஷ்'
+                : currentLang === 'hi'
+                ? 'श्री एस. वेंकटेश'
+                : 'Mr. S. Venkatesh'}
             </p>
-            <p className={`font-serif text-sm ${isDark ? 'text-ivory-300' : 'text-[#6B4E32]'}`}>
-              &amp; Mrs. V. Rashmi
+            <p className={`font-serif text-sm sm:text-base ${isDark ? 'text-ivory-300' : 'text-[#6B4E32]'}`}>
+              {currentLang === 'ta'
+                ? '& திருமதி. வி. ரேஷ்மி'
+                : currentLang === 'hi'
+                ? 'एवं श्रीमती वी. रश्मि'
+                : '& Mrs. V. Rashmi'}
             </p>
             <p className={`text-xs font-cinzel tracking-wider mt-0.5 ${isDark ? 'text-gold-400/90' : 'text-gold-700'}`}>
-              (Perumpalai)
+              {currentLang === 'ta' ? '(பெரும்பாலை)' : currentLang === 'hi' ? '(पेरुमपलाई)' : '(Perumpalai)'}
             </p>
           </div>
 
@@ -163,14 +171,22 @@ export const FamilyBlessings: React.FC<FamilyBlessingsProps> = ({ currentLang })
             >
               {currentLang === 'ta' ? 'மணமகள் குடும்பத்தார்' : currentLang === 'hi' ? 'वधु पक्ष' : "Bride's Family"}
             </p>
-            <p className={`font-serif text-base font-bold mt-1 ${isDark ? 'text-ivory-100' : 'text-[#4A0E17]'}`}>
-              Mr. Natarajan Rathinasabapathy
+            <p className={`font-serif text-base sm:text-lg font-bold mt-1 ${isDark ? 'text-ivory-100' : 'text-[#4A0E17]'}`}>
+              {currentLang === 'ta'
+                ? 'திரு. நடராஜன் ரத்தினசபாபதி'
+                : currentLang === 'hi'
+                ? 'श्री नटराजन रथिनसबापति'
+                : 'Mr. Natarajan Rathinasabapathy'}
             </p>
-            <p className={`font-serif text-sm ${isDark ? 'text-ivory-300' : 'text-[#6B4E32]'}`}>
-              &amp; Mrs. Shanthi Natarajan
+            <p className={`font-serif text-sm sm:text-base ${isDark ? 'text-ivory-300' : 'text-[#6B4E32]'}`}>
+              {currentLang === 'ta'
+                ? '& திருமதி. சாந்தி நடராஜன்'
+                : currentLang === 'hi'
+                ? 'एवं श्रीमती शांति नटराजन'
+                : '& Mrs. Shanthi Natarajan'}
             </p>
             <p className={`text-xs font-cinzel tracking-wider mt-0.5 ${isDark ? 'text-gold-400/90' : 'text-gold-700'}`}>
-              (Chennai)
+              {currentLang === 'ta' ? '(சென்னை)' : currentLang === 'hi' ? '(चेन्नई)' : '(Chennai)'}
             </p>
           </div>
         </div>

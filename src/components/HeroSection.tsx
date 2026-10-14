@@ -262,31 +262,31 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLang }) => {
         <GoldFiligreeDivider className="my-3" />
 
         {/* Auspicious Muhurtham Date & Venue Banner */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 my-5 font-serif">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-8 my-6 font-serif">
           <div
-            className={`flex items-center space-x-2 ${
+            className={`flex items-center space-x-2.5 ${
               isDark ? 'text-gold-200' : 'text-[#660C1E]'
             }`}
           >
-            <Calendar className={`w-5 h-5 ${isDark ? 'text-gold-400' : 'text-gold-600'}`} />
-            <span className="text-sm sm:text-base font-semibold tracking-wide">
+            <Calendar className={`w-6 h-6 shrink-0 ${isDark ? 'text-gold-400' : 'text-gold-600'}`} />
+            <span className="text-base sm:text-lg md:text-xl font-bold tracking-wide">
               {weddingData.muhurthamTimeFormatted[currentLang]}
             </span>
           </div>
 
           <div
-            className={`hidden sm:block w-1.5 h-1.5 rounded-full ${
+            className={`hidden sm:block w-2 h-2 rounded-full ${
               isDark ? 'bg-gold-400' : 'bg-gold-600'
             }`}
           />
 
           <div
-            className={`flex items-center space-x-2 ${
+            className={`flex items-center space-x-2.5 ${
               isDark ? 'text-gold-200' : 'text-[#660C1E]'
             }`}
           >
-            <MapPin className={`w-5 h-5 ${isDark ? 'text-gold-400' : 'text-gold-600'}`} />
-            <span className="text-sm sm:text-base font-semibold tracking-wide">
+            <MapPin className={`w-6 h-6 shrink-0 ${isDark ? 'text-gold-400' : 'text-gold-600'}`} />
+            <span className="text-base sm:text-lg md:text-xl font-bold tracking-wide">
               {weddingData.primaryVenue.city[currentLang]}
             </span>
           </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Navigation, Car, Phone } from 'lucide-react';
+import { MapPin, Navigation } from 'lucide-react';
 import { SupportedLanguage } from '../types/wedding';
 import { weddingData } from '../data/weddingData';
 import { useTheme } from '../context/ThemeContext';
@@ -11,7 +11,7 @@ interface VenueSectionProps {
 
 export const VenueSection: React.FC<VenueSectionProps> = ({ currentLang }) => {
   const t = weddingData.translations[currentLang];
-  const { primaryVenue, contactNumber } = weddingData;
+  const { primaryVenue } = weddingData;
   const { isDark } = useTheme();
 
   return (
@@ -110,26 +110,6 @@ export const VenueSection: React.FC<VenueSectionProps> = ({ currentLang }) => {
               <Navigation className="w-4 h-4" />
               <span>{t.openMapBtn}</span>
             </a>
-
-            <div
-              className={`flex flex-col sm:flex-row items-center justify-between text-xs pt-2 gap-2 ${
-                isDark ? 'text-gold-300/80' : 'text-gold-800'
-              }`}
-            >
-              <span className="flex items-center space-x-1.5">
-                <Car className={`w-3.5 h-3.5 ${isDark ? 'text-gold-400' : 'text-gold-600'}`} />
-                <span>Valet Parking Available</span>
-              </span>
-              <a
-                href={`tel:${contactNumber}`}
-                className={`flex items-center space-x-1.5 transition-colors ${
-                  isDark ? 'hover:text-gold-100' : 'hover:text-maroon-900 font-medium'
-                }`}
-              >
-                <Phone className={`w-3.5 h-3.5 ${isDark ? 'text-gold-400' : 'text-gold-600'}`} />
-                <span>Helpdesk: {contactNumber}</span>
-              </a>
-            </div>
           </div>
         </div>
       </div>
