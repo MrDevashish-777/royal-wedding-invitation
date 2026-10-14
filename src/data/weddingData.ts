@@ -137,7 +137,7 @@ export const weddingData: WeddingData = {
     embedMapUrl: 'https://maps.google.com/maps?q=Thaayaar+Abboy+Thirumana+Mahal+Cheyyar+Tamil+Nadu&t=&z=15&ie=UTF8&iwloc=&output=embed',
   },
 
-  websiteUrl: 'https://theyashkavyawedding.in',
+  websiteUrl: 'https://www.theyashkavyawedding.in',
   contactNumber: '+919876543210',
 
   // Ceremonies
